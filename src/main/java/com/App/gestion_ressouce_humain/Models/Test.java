@@ -1,4 +1,4 @@
-package Models;
+package com.App.gestion_ressouce_humain.Models;
 
 public class Test {
     static Ingénieur emp;

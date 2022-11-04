@@ -1,4 +1,4 @@
-package Controllers;
+package com.App.gestion_ressouce_humain.Controllers;
 
 import javax.swing.*;
 

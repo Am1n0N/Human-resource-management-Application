@@ -1,6 +1,6 @@
-package Controllers;
+package com.App.gestion_ressouce_humain.Controllers;
 
-import Views.LoginPage;
+import com.App.gestion_ressouce_humain.Views.LoginPage;
 
 public class Start {
     public static void main(String[] args) {
@@ -26,8 +26,7 @@ public class Start {
 
         /* Lancer le programme lorsque tous les tests sont termin�s */
         if (c1 && c2) {
-            LoginPage id = new LoginPage(); /* Creation du fenetre identification */
-            id.setVisible(true); /* Affichage du fenetre */
+           //TODO: App Launch
         }
     }
 

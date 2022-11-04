@@ -1,6 +1,6 @@
-package Controllers;
+package com.App.gestion_ressouce_humain.Controllers;
 
-import Models.Connector;
+import com.App.gestion_ressouce_humain.Models.Connector;
 
 import java.sql.Connection;
 
