@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
+    <groupId>com.App</groupId>
     <artifactId>Gestion_Ressouce_Humain</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Gestion_Ressouce_Humain</name>
@@ -76,7 +76,7 @@
         <dependency>
             <groupId>eu.hansolo</groupId>
             <artifactId>tilesfx</artifactId>
-            <version>17.1.9</version>
+            <version>17.1.15</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.openjfx</groupId>
@@ -130,7 +130,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.gestion_ressouce_humain/com.example.gestion_ressouce_humain.HelloApplication
+                                com.App.gestion_ressources_humaines.Views.LoginPage
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

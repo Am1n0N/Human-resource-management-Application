@@ -1,6 +1,4 @@
-package com.App.gestion_ressouce_humain.Controllers;
-
-import com.App.gestion_ressouce_humain.Views.LoginPage;
+package com.App.gestion_ressources_humaines.Controllers;
 
 public class Start {
     public static void main(String[] args) {
@@ -8,19 +6,19 @@ public class Start {
 
         /* Test Cryptage */
         Boolean c1 = t.Testcrypter();
-        if (c1 == true) {
+        if (c1) {
             System.out.println("Test Cryptage: " + c1);
         } else {
-            Outils.error("Cryptage Invalide");
+            System.out.println("Cryptage Invalide");
         }
         ;
 
         /* Test Connexion � la BD */
         Boolean c2 = t.Testcnx();
-        if (c2 == true) {
+        if (c2) {
             System.out.println("Test Connexion BD: " + c2);
         } else {
-            Outils.error("Error du connexion BD");
+            System.out.println("Error du connexion BD");
         }
         ;
 

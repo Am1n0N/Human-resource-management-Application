@@ -1,4 +1,4 @@
-package com.App.gestion_ressouce_humain.Models;
+package com.App.gestion_ressources_humaines.Models;
 import java.sql.*;
 public class Connector {
     private Connection conn;

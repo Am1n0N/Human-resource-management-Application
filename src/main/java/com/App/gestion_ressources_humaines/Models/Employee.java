@@ -1,18 +1,15 @@
-package com.App.gestion_ressouce_humain.Models;
+package com.App.gestion_ressources_humaines.Models;
 import java.sql.*;
 
-import static java.sql.Statement.RETURN_GENERATED_KEYS;
-
 public class Employee {
-    private String Nom,Prenom,Titre,Adress,PhoneNum,DateNaiss;
+    private String Nom,Prenom,Titre,Adress,PhoneNum,DateNaiss,Hiring_date,Dismissal_date;
     private int id;
     private Float Salaire;
     private String query;
     private Connection con;
     private Connector connection;
 
-    public Employee(String nom, String prenom, String titre, String adress, String phoneNum, String dateNaiss,
-                    Float salaire) {
+    public Employee(String nom, String prenom, String titre, String adress, String phoneNum, String dateNaiss, Float salaire, String Hiring_date) {
         this.Nom = nom;
         this.Prenom = prenom;
         this.Titre = titre;
@@ -20,16 +17,37 @@ public class Employee {
         this.PhoneNum = phoneNum;
         this.DateNaiss = dateNaiss;
         this.Salaire = salaire;
+        this.Hiring_date=Hiring_date;
+    }
+
+    public Employee(int id){
+        String query= "SELECT * FROM `employee` WHERE `id` = '"+id+"'";
+        connection = new Connector();
+        try {
+            con = connection.connect();
+            PreparedStatement preparedStmt = con.prepareStatement(query);
+            ResultSet rs= preparedStmt.executeQuery();
+            if(rs.next()){
+                this.id = rs.getInt(1);
+                this.Nom = rs.getString(2);
+                this.Prenom = rs.getString(3);
+                this.Titre = rs.getString(4);
+                this.Salaire =  rs.getFloat(5);;
+                this.Adress = rs.getString(8);
+                this.PhoneNum =  rs.getString(7);;
+                this.DateNaiss =  rs.getString(6);;
+                this.Hiring_date= rs.getString(9);;
+                this.Dismissal_date=rs.getString(10);;
+            }
+            con.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
     }
 
     protected void Ajouter() {
-        if(Titre.equals("technicien")) {
-            query = "insert into technicien(`Nom`, `Prenom`, `Titre`, `Salaire`, `DateNaiss`, `PhoneNum`, `Adress`)  VALUES ('"+Nom+"','"+Prenom+"','"+Titre+"','"+Salaire+"','"+DateNaiss+"','"+PhoneNum+"','"+Adress+"')";
-        }else if(Titre.equals("ingénieur")) {
-            query = "insert into ingénieur(`Nom`, `Prenom`, `Titre`, `Salaire`, `DateNaiss`, `PhoneNum`, `Adress`)  VALUES ('"+Nom+"','"+Prenom+"','"+Titre+"','"+Salaire+"','"+DateNaiss+"','"+PhoneNum+"','"+Adress+"')";
-        }else {
-            query = "insert into ouvrier(`Nom`, `Prenom`, `Titre`, `Salaire`, `DateNaiss`, `PhoneNum`, `Adress`)  VALUES ('"+Nom+"','"+Prenom+"','"+Titre+"','"+Salaire+"','"+DateNaiss+"','"+PhoneNum+"','"+Adress+"')";
-        }
+        query = "insert into `employee` (`Nom`, `Prenom`, `Titre`, `Salaire`, `DateNaiss`, `PhoneNum`, `Adress`,`Hiring_date`)  VALUES ('"+Nom+"','"+Prenom+"','"+Titre+"','"+Salaire+"','"+DateNaiss+"','"+PhoneNum+"','"+Adress+"','"+Hiring_date+"')";
         connection = new Connector();
         try {
             con = connection.connect();
@@ -48,14 +66,7 @@ public class Employee {
     }
 
     protected void Update(int id) {
-        if(Titre.equals("technicien")) {
-            query = "UPDATE `technicien` SET `Nom`='"+Nom+"',`Prenom`='"+Prenom+"',`Titre`='"+Titre+"',`Salaire`='"+Salaire+"',`DateNaiss`='"+DateNaiss+"',`PhoneNum`='"+PhoneNum+"',`Adress`='"+Adress+"' WHERE `idTec` = '"+id+"'";
-        }else if(Titre.equals("ingénieur")) {
-            query = "UPDATE `ingénieur` SET `Nom`='"+Nom+"',`Prenom`='"+Prenom+"',`Titre`='"+Titre+"',`Salaire`='"+Salaire+"',`DateNaiss`='"+DateNaiss+"',`PhoneNum`='"+PhoneNum+"',`Adress`='"+Adress+"' WHERE `idIng` = '"+id+"'";
-        }
-        else {
-            query = "UPDATE `ouvrier` SET `Nom`='"+Nom+"',`Prenom`='"+Prenom+"',`Titre`='"+Titre+"',`Salaire`='"+Salaire+"',`DateNaiss`='"+DateNaiss+"',`PhoneNum`='"+PhoneNum+"',`Adress`='"+Adress+"' WHERE `idOv` = '"+id+"'";
-        }
+        query = "UPDATE `employee` SET `Nom`='"+Nom+"',`Prenom`='"+Prenom+"',`Titre`='"+Titre+"',`Salaire`='"+Salaire+"',`DateNaiss`='"+DateNaiss+"',`PhoneNum`='"+PhoneNum+"',`Adress`='"+Adress+"' WHERE `idTec` = '"+id+"'";
         connection = new Connector();
         try {
             con = connection.connect();

@@ -1,19 +1,8 @@
-package com.App.gestion_ressouce_humain.Controllers;
+package com.App.gestion_ressources_humaines.Controllers;
 
-import javax.swing.*;
 
 public class Outils {
 
-    /*Procedure qui affiche un message d'error*/
-    public static void error(String textError) {
-        JOptionPane.showMessageDialog(null, textError, " Error", 0);
-    }
-
-    /*Procedure qui affiche un message d'information*/
-
-    public static void info(String textInfo) {
-        JOptionPane.showMessageDialog(null, textInfo, " Info", JOptionPane.INFORMATION_MESSAGE);
-    }
 
     /*Fonction pour crypter le mdp*/
     public static String crypter(String texte) {
@@ -26,7 +15,7 @@ public class Outils {
             }
             return (textechiffr);
         } catch (Exception e) {
-            Outils.error("Error au niveau du cryptage");
+            System.out.println("Error au niveau du cryptage");
             return ("");
         }
     }
@@ -42,7 +31,7 @@ public class Outils {
             }
             return (textechiffr);
         } catch (Exception e) {
-            Outils.error("Error au niveau du decryptage");
+            System.out.println("Error au niveau du decryptage");
             return ("");
         }
     }
