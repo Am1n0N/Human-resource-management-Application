@@ -1,10 +1,11 @@
-package com.Humain_Ressources_Management.Views;
+package com.hrm.Views;
 
-import com.Humain_Ressources_Management.Controllers.AccountController;
-import com.Humain_Ressources_Management.Controllers.Tools;
-import com.Humain_Ressources_Management.DAO.AccountDataAccessService;
-import com.Humain_Ressources_Management.Main;
-import com.Humain_Ressources_Management.Models.Account;
+
+import com.hrm.Controllers.AccountController;
+import com.hrm.Controllers.Tools;
+import com.hrm.DAO.AccountDataAccessService;
+import com.hrm.Main;
+import com.hrm.Models.Account;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,7 +45,8 @@ public class Login implements Initializable {
     }
 
 
-    private void Login(ActionEvent event){
+    @FXML
+    private void Login(ActionEvent event)  {
         if(email.getText().trim().isEmpty()){
             setError("Email can't be empty!");
         }
@@ -57,17 +59,19 @@ public class Login implements Initializable {
 
 
             if(accountController.login(parsedusername, parsedpass)){
+                System.out.println("Logged in!");
                 Stage stage = Main.getPrimaryStage();
-                FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("Dashboard.fxml"));
-                try{
+                FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/Dashboard.fxml"));
+                try {
                     Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
                     stage.setResizable(false);
                     stage.setTitle("Dashboard");
                     stage.setScene(scene);
                     stage.centerOnScreen();
                     stage.show();
-                }
-                catch (Exception ex){
+                } catch (Exception ex){
+                    System.out.println("Error loading Dashboard");
+                    System.out.println(ex.getMessage());
                     Tools.buildError("Unsuccessful",ex.getMessage(),"303");
                 }
             } else {

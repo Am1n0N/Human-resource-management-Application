@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hrm.Views.AcceuilTab">
+   <children>
+      <ImageView fitHeight="172.0" fitWidth="297.0" layoutX="241.0" layoutY="44.0">
+         <image>
+            <Image url="@samplelogo.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="SearchField" layoutX="83.0" layoutY="258.0" prefHeight="25.0" prefWidth="596.0" promptText="Recherche ..." />
+      <Button fx:id="SearchBtn" layoutX="698.0" layoutY="258.0" mnemonicParsing="false" onAction="#Search" prefHeight="25.0" prefWidth="80.0" text="Recherche" />
+      <Text layoutX="14.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee" wrappingWidth="57.755859375">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Text>
+      <Pane layoutX="135.0" layoutY="311.0" prefHeight="200.0" prefWidth="525.0" style="-fx-background-radius: 30; -fx-background-color: #ffffff;">
+         <children>
+            <Label layoutX="40.0" layoutY="14.0" prefHeight="56.0" prefWidth="339.0" text="Number of Staff">
+               <graphic>
+                  <FontAwesomeIcon fill="#2969ff" glyphName="USERS" size="50" />
+               </graphic>
+               <font>
+                  <Font name="System Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <Line endX="265.0" layoutX="195.0" layoutY="72.0" startX="-146.0" />
+            <Label layoutX="40.0" layoutY="72.0" prefHeight="56.0" prefWidth="339.0" text="Number of PTO Request">
+               <font>
+                  <Font name="System Bold Italic" size="22.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIcon fill="#2969ff" glyphName="BOOK" size="50" />
+               </graphic>
+            </Label>
+            <Line endX="265.0" layoutX="192.0" layoutY="128.0" startX="-146.0" />
+            <Label layoutX="40.0" layoutY="128.0" prefHeight="56.0" prefWidth="339.0" text="Number of Entries Request">
+               <graphic>
+                  <FontAwesomeIcon fill="#2969ff" glyphName="COMMENTS" size="50" />
+               </graphic>
+               <font>
+                  <Font name="System Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="NbStaff" layoutX="412.0" layoutY="26.0" prefHeight="32.0" prefWidth="28.0" text="5" textAlignment="CENTER" textFill="#2969ff" textOverrun="CLIP">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="NbPTO" layoutX="412.0" layoutY="84.0" prefHeight="32.0" prefWidth="28.0" text="12" textAlignment="CENTER" textFill="#2969ff" textOverrun="CLIP">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="NbEntries" layoutX="412.0" layoutY="140.0" prefHeight="32.0" prefWidth="28.0" text="30" textAlignment="CENTER" textFill="#2969ff" textOverrun="CLIP">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

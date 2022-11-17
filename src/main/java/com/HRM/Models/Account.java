@@ -1,4 +1,4 @@
-package com.Humain_Ressources_Management.Models;
+package com.hrm.Models;
 
 public class Account {
     private String Email,Password,isAdmin;

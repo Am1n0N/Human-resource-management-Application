@@ -1,18 +1,26 @@
-package com.Humain_Ressources_Management.Controllers;
+package com.hrm.Controllers;
 
-import com.Humain_Ressources_Management.DAO.AccountDAO;
-import com.Humain_Ressources_Management.Models.Account;
-import com.Humain_Ressources_Management.Models.Employee;
-import com.Humain_Ressources_Management.Views.Login;
+
+import com.hrm.DAO.AccountDAO;
+import com.hrm.Models.Account;
+import com.hrm.Models.Employee;
+import com.hrm.Views.Login;
 
 public class AccountController {
     private final AccountDAO accountDAO;
 
     public AccountController(AccountDAO accountDAO) {
         this.accountDAO = accountDAO;
+        try {
+            this.accountDAO.connect();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public boolean login(String Email, String password) {
+
         if (accountDAO.login(Email, password) != 0) {
             Login.account = accountDAO.GetAccount(accountDAO.login(Email, password));
             return true;

@@ -1,7 +1,8 @@
-package com.Humain_Ressources_Management.DAO;
+package com.hrm.DAO;
 
-import com.Humain_Ressources_Management.Models.Account;
-import com.Humain_Ressources_Management.Models.Employee;
+
+import com.hrm.Models.Account;
+import com.hrm.Models.Employee;
 
 public interface AccountDAO extends DAO {
     int AddAccount(String Email, String password, String isAdmin, int id_Emp);

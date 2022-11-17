@@ -1,7 +1,9 @@
-package com.Humain_Ressources_Management.DAO;
+package com.hrm.DAO;
 
-import com.Humain_Ressources_Management.Models.Account;
-import com.Humain_Ressources_Management.Models.Employee;
+
+
+import com.hrm.Models.Account;
+import com.hrm.Models.Employee;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -92,7 +94,7 @@ try {
             if(rs.next()){
                  employee = new Employee(rs.getInt("id"),
                         rs.getString("Name"),
-                        rs.getString("Last_Name"),
+                        rs.getString("Last_Name"), rs.getString("NIN"),
                         rs.getString("Title"),
                         rs.getString("Address"),
                         rs.getString("Telephone"),

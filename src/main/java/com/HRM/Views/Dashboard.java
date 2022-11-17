@@ -1,6 +1,6 @@
-package com.Humain_Ressources_Management.Views;
+package com.hrm.Views;
 
-import com.Humain_Ressources_Management.Main;
+import com.hrm.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -43,33 +43,33 @@ public class Dashboard implements Initializable {
 
         if (Boolean.parseBoolean(Login.account.getIsAdmin())) {
             adminLabel.setVisible(true);
-            leafs.add(new TreeItem<>("Accueil", buildIcon("Accueil.png")));
-            leafs.add(new TreeItem<>("Profile", buildIcon("Patients.png")));
+            leafs.add(new TreeItem<>("Accueil", buildIcon("/Accueil.png")));
+            leafs.add(new TreeItem<>("Profile", buildIcon("/Employee.png")));
 
-            leafs.add(new TreeItem<>("Employees", buildIcon("RE.png")));
-            leafs.add(new TreeItem<>("Add Employee", buildIcon("Laboratoire.png")));
-            leafs.add(new TreeItem<>("Contracts", buildIcon("Imagerie.png")));
+            leafs.add(new TreeItem<>("Employees", buildIcon("/RE.png")));
+            leafs.add(new TreeItem<>("Add Employee", buildIcon("/Laboratoire.png")));
+            leafs.add(new TreeItem<>("Contracts", buildIcon("/Imagerie.png")));
 
-            leafs.add(new TreeItem<>("Add Entry", buildIcon("Hospitalisation.png")));
-            leafs.add(new TreeItem<>("Entries", buildIcon("BO.png")));
-            leafs.add(new TreeItem<>("Requests", buildIcon("SP.png")));
+            leafs.add(new TreeItem<>("Add Entry", buildIcon("/Hospitalisation.png")));
+            leafs.add(new TreeItem<>("Entries", buildIcon("/BO.png")));
+            leafs.add(new TreeItem<>("Requests", buildIcon("/SP.png")));
 
-            leafs.add(new TreeItem<>("Add PTO", buildIcon("Hospitalisation.png")));
-            leafs.add(new TreeItem<>("PTO Request", buildIcon("BO.png")));
-            leafs.add(new TreeItem<>("PTOs", buildIcon("SP.png")));
+            leafs.add(new TreeItem<>("Add PTO", buildIcon("/Hospitalisation.png")));
+            leafs.add(new TreeItem<>("PTO Request", buildIcon("/BO.png")));
+            leafs.add(new TreeItem<>("PTOs", buildIcon("/SP.png")));
 
             navList.getRoot().getChildren().addAll(leafs);
         } else {
             adminLabel.setVisible(false);
 
-            leafs.add(new TreeItem<>("Accueil", buildIcon("Accueil.png")));
-            leafs.add(new TreeItem<>("Profile", buildIcon("Patients.png")));
+            leafs.add(new TreeItem<>("Accueil", buildIcon("/Accueil.png")));
+            leafs.add(new TreeItem<>("Profile", buildIcon("/Patients.png")));
 
-            leafs.add(new TreeItem<>("Request Entry", buildIcon("Hospitalisation.png")));
-            leafs.add(new TreeItem<>("Entries", buildIcon("BO.png")));
+            leafs.add(new TreeItem<>("Request Entry", buildIcon("/Hospitalisation.png")));
+            leafs.add(new TreeItem<>("Entries", buildIcon("/BO.png")));
 
-            leafs.add(new TreeItem<>("Request PTO", buildIcon("Hospitalisation.png")));
-            leafs.add(new TreeItem<>(" My PTOs", buildIcon("SP.png")));
+            leafs.add(new TreeItem<>("Request PTO", buildIcon("/Hospitalisation.png")));
+            leafs.add(new TreeItem<>(" My PTOs", buildIcon("/SP.png")));
 
             navList.getRoot().getChildren().addAll(leafs);
         }
@@ -84,6 +84,7 @@ public class Dashboard implements Initializable {
                         addTab("Accueil", "Accueil.png", mainPane);
                         break;
                     case "Profile":
+                        ProfileTab.account = Login.account;
                         addTab("Profile", "Patients.png", mainPane);
                         break;
                     case "Employees":
@@ -136,7 +137,7 @@ public class Dashboard implements Initializable {
         try {
             imgPatch = Dashboard.class.getResource(icon).toString();
         } catch (NullPointerException ex) {
-            imgPatch = Dashboard.class.getResource("handIcon.png").toString();
+            imgPatch = Dashboard.class.getResource("/handIcon.png").toString();
         }
         ;
 
@@ -193,7 +194,7 @@ public class Dashboard implements Initializable {
             newTab.setId(name);
             switch (name){
                 case "Accueil":
-                    FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AcceuilTab.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/AcceuilTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader.load());
                     } catch (Exception e) {
@@ -201,7 +202,7 @@ public class Dashboard implements Initializable {
                     }
                     break;
                 case "Profile":
-                    FXMLLoader fxmlLoader1 = new FXMLLoader(Main.class.getResource("ProfileTab.fxml"));
+                    FXMLLoader fxmlLoader1 = new FXMLLoader(Main.class.getResource("/ProfileTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader1.load());
                     } catch (Exception e) {
@@ -209,7 +210,7 @@ public class Dashboard implements Initializable {
                     }
                     break;
                 case "Employees":
-                    FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("EmployeesTab.fxml"));
+                    FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("/com/app/hrm/EmployeesTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader2.load());
                     } catch (Exception e) {
@@ -217,7 +218,7 @@ public class Dashboard implements Initializable {
                     }
                     break;
                 case "Add Employee":
-                    FXMLLoader fxmlLoader3 = new FXMLLoader(Main.class.getResource("AddEmployeeTab.fxml"));
+                    FXMLLoader fxmlLoader3 = new FXMLLoader(Main.class.getResource("/com/app/hrm/AddEmployeeTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader3.load());
                     } catch (Exception e) {
@@ -225,7 +226,7 @@ public class Dashboard implements Initializable {
                     }
                     break;
                 case "Contracts":
-                    FXMLLoader fxmlLoader4 = new FXMLLoader(Main.class.getResource("ContractsTab.fxml"));
+                    FXMLLoader fxmlLoader4 = new FXMLLoader(Main.class.getResource("/com/app/hrm/ContractsTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader4.load());
                     } catch (Exception e) {
@@ -234,7 +235,7 @@ public class Dashboard implements Initializable {
                     break;
                 case "Add Entry":
                 case "Request Entry":
-                    FXMLLoader fxmlLoader5 = new FXMLLoader(Main.class.getResource("AddEntryTab.fxml"));
+                    FXMLLoader fxmlLoader5 = new FXMLLoader(Main.class.getResource("/com/app/hrm/AddEntryTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader5.load());
                     } catch (Exception e) {
@@ -242,7 +243,7 @@ public class Dashboard implements Initializable {
                     }
                     break;
                 case "Entries":
-                    FXMLLoader fxmlLoader6 = new FXMLLoader(Main.class.getResource("EntriesTab.fxml"));
+                    FXMLLoader fxmlLoader6 = new FXMLLoader(Main.class.getResource("/com/app/hrm/EntriesTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader6.load());
                     } catch (Exception e) {
@@ -250,7 +251,7 @@ public class Dashboard implements Initializable {
                     }
                     break;
                 case "Requests":
-                    FXMLLoader fxmlLoader7 = new FXMLLoader(Main.class.getResource("RequestsTab.fxml"));
+                    FXMLLoader fxmlLoader7 = new FXMLLoader(Main.class.getResource("/com/app/hrm/RequestsTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader7.load());
                     } catch (Exception e) {
@@ -259,7 +260,7 @@ public class Dashboard implements Initializable {
                     break;
                 case "Add PTO":
                 case "Request PTO":
-                    FXMLLoader fxmlLoader8 = new FXMLLoader(Main.class.getResource("AddPTOTab.fxml"));
+                    FXMLLoader fxmlLoader8 = new FXMLLoader(Main.class.getResource("/com/app/hrm/AddPTOTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader8.load());
                     } catch (Exception e) {
@@ -268,7 +269,7 @@ public class Dashboard implements Initializable {
                     break;
                 case "My PTOs":
                 case "PTOs":
-                    FXMLLoader fxmlLoader9 = new FXMLLoader(Main.class.getResource("PTOsTab.fxml"));
+                    FXMLLoader fxmlLoader9 = new FXMLLoader(Main.class.getResource("/com/app/hrm/PTOsTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader9.load());
                     } catch (Exception e) {
@@ -276,7 +277,7 @@ public class Dashboard implements Initializable {
                     }
                     break;
                 case "PTO Requests":
-                    FXMLLoader fxmlLoader10 = new FXMLLoader(Main.class.getResource("PTORequestsTab.fxml"));
+                    FXMLLoader fxmlLoader10 = new FXMLLoader(Main.class.getResource("/com/app/hrm/PTORequestsTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader10.load());
                     } catch (Exception e) {

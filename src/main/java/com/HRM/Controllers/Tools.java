@@ -1,4 +1,4 @@
-package com.Humain_Ressources_Management.Controllers;
+package com.hrm.Controllers;
 
 
 import javafx.scene.control.Alert;

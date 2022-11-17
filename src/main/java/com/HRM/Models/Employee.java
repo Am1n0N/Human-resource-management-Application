@@ -1,10 +1,7 @@
-package com.Humain_Ressources_Management.Models;
-
-
-
+package com.hrm.Models;
 
 public class Employee {
-    private String  name,  Last_name,  Title,  address,  Telephone,  DateNaissance,  Hiring_date;
+    private String  name,  Last_name, NIN, Title,  address,  Telephone,  DateNaissance,  Hiring_date;
     private int id;
     private Double Salary;
 
@@ -22,6 +19,14 @@ public class Employee {
 
     public void setLast_name(String last_name) {
         Last_name = last_name;
+    }
+
+    public String getNIN() {
+        return NIN;
+    }
+
+    public void setNIN(String NIN) {
+        this.NIN = NIN;
     }
 
     public String getTitle() {
@@ -80,26 +85,28 @@ public class Employee {
         Salary = salary;
     }
 
-    public Employee(int id, String name, String Last_name, String Title, String address, String Telephone, String DateNaissance, Double salary, String Hiring_date) {
-        this.id = id;
+    public Employee(int id, String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  Double salary, String hiring_date) {
         this.name = name;
-        this.Last_name = Last_name;
-        this.Title = Title;
+        this.Last_name = last_name;
+        this.NIN = NIN;
+        this.Title = title;
         this.address = address;
-        this.Telephone = Telephone;
-        this.DateNaissance = DateNaissance;
+        this.Telephone = telephone;
+        this.DateNaissance = dateNaissance;
+        this.Hiring_date = hiring_date;
+        this.id = id;
         this.Salary = salary;
-        this.Hiring_date = Hiring_date;
     }
 
-    public Employee (String name, String Last_name, String Title, String address, String Telephone, String DateNaissance, Double salary, String Hiring_date) {
+    public Employee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  Double salary, String hiring_date) {
         this.name = name;
-        this.Last_name = Last_name;
-        this.Title = Title;
+        this.Last_name = last_name;
+        this.NIN = NIN;
+        this.Title = title;
         this.address = address;
-        this.Telephone = Telephone;
-        this.DateNaissance = DateNaissance;
+        this.Telephone = telephone;
+        this.DateNaissance = dateNaissance;
+        this.Hiring_date = hiring_date;
         this.Salary = salary;
-        this.Hiring_date = Hiring_date;
     }
 }

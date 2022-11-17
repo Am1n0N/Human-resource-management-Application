@@ -1,4 +1,4 @@
-package com.Humain_Ressources_Management.DAO;
+package com.hrm.DAO;
 
 public interface DAO {
      void close() throws Exception;
