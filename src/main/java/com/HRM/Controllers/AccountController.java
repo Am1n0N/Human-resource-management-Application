@@ -5,6 +5,9 @@ import com.hrm.DAO.AccountDAO;
 import com.hrm.Models.Account;
 import com.hrm.Models.Employee;
 import com.hrm.Views.Login;
+import javafx.scene.image.Image;
+
+import java.io.File;
 
 public class AccountController {
     private final AccountDAO accountDAO;
@@ -61,4 +64,11 @@ public class AccountController {
     }
 
 
+    public void ChangeProfilePic(int id, File file) {
+        accountDAO.ChangeProfilePic(id, file);
+    }
+
+    public Image getProfilePic(int id) {
+        return accountDAO.getProfilePic(id);
+    }
 }

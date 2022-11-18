@@ -36,6 +36,7 @@ public class AcceuilTab implements Initializable {
     private void Search(ActionEvent actionEvent) {
         Employee employee = employeeController.SearchEmployee(SearchField.getText());
         if(employee != null){
+            Dashboard.removeTab("Profile", Dashboard.corePane);
             ProfileTab.account = employeeController.getAccount(employee.getId());
             Dashboard.addTab("Profile","Employee.png",Dashboard.corePane);
         }

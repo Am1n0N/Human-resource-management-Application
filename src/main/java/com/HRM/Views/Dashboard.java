@@ -84,6 +84,7 @@ public class Dashboard implements Initializable {
                         addTab("Accueil", "Accueil.png", mainPane);
                         break;
                     case "Profile":
+                        removeTab("Profile", mainPane);
                         ProfileTab.account = Login.account;
                         addTab("Profile", "Patients.png", mainPane);
                         break;
@@ -176,7 +177,7 @@ public class Dashboard implements Initializable {
         return foundTab;
     }
 
-    private static void removeTab(String id, TabPane mainPane) {
+    public static void removeTab(String id, TabPane mainPane) {
         for (Tab tab : mainPane.getTabs()) {
             if (tab.getId() == null) {
                 continue;
@@ -187,7 +188,7 @@ public class Dashboard implements Initializable {
         }
     }
 
-    static void addTab(String name, String icon, TabPane pane) {
+    public static void addTab(String name, String icon, TabPane pane) {
         if (!checkTab(name, pane)) {
             Tab newTab = new Tab(name);
             newTab.setGraphic(buildIcon(icon));

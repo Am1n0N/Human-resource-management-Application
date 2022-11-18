@@ -5,6 +5,8 @@ package com.hrm.DAO;
 import com.hrm.Models.Account;
 import com.hrm.Models.Employee;
 
+import java.awt.*;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -186,6 +188,38 @@ try {
             System.out.println(e);
         }
         return 0;
+    }
+
+    @Override
+    public void ChangeProfilePic(int id, File file) {
+        try {
+            query = "UPDATE employee SET ProfilePic = ? WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setBinaryStream(1, new FileInputStream(file), (int) file.length());
+            statement.setInt(2, id);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
+    //Get profile pic from database
+    public javafx.scene.image.Image getProfilePic(int id) {
+        String query= "SELECT * FROM `employee` WHERE `id` = '"+id+"'";
+        try {
+            PreparedStatement preparedStmt = connection.prepareStatement(query);
+            ResultSet rs= preparedStmt.executeQuery();
+            if(rs.next()){
+                InputStream is = rs.getBinaryStream("ProfilePic");
+                if(is != null){
+                    return new javafx.scene.image.Image(is);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
     }
 
 

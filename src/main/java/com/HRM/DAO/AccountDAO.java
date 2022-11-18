@@ -3,6 +3,10 @@ package com.hrm.DAO;
 
 import com.hrm.Models.Account;
 import com.hrm.Models.Employee;
+import javafx.scene.image.Image;
+
+import java.awt.*;
+import java.io.File;
 
 public interface AccountDAO extends DAO {
     int AddAccount(String Email, String password, String isAdmin, int id_Emp);
@@ -18,4 +22,8 @@ public interface AccountDAO extends DAO {
     int ChangeEmail(int id, String Email);
 
     int signup(Account account, Employee employee);
+
+    void ChangeProfilePic(int id, File file);
+
+    Image getProfilePic(int id);
 }
