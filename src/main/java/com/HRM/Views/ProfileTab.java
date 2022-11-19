@@ -1,49 +1,35 @@
 package com.hrm.Views;
 
-import com.hrm.Controllers.AccountController;
-import com.hrm.DAO.AccountDataAccessService;
+
 import com.hrm.Main;
 import com.hrm.Models.Account;
 import com.hrm.Models.Employee;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Popup;
-import javafx.stage.Stage;
 import javafx.util.Pair;
 
-import java.awt.*;
+
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
+
+import static com.hrm.Main.buildAccountController;
 
 public class ProfileTab implements Initializable {
 
     public static Account account;
-
-    private Scene scene;
-
-    private Popup ChangePasswordPopup;
-    private AccountController accountController = new AccountController(new AccountDataAccessService());
     @FXML
     ImageView profileImage;
 
@@ -58,7 +44,7 @@ public class ProfileTab implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ChangePwdBtn.setVisible(false);
         ChangePicBtn.setVisible(false);
-        Employee employee = accountController.getEmployee(account.getId_Emp());
+        Employee employee = buildAccountController().getEmployee(account.getId_Emp());
         Name.setText(employee.getName());
         Last_name.setText(employee.getLast_name());
         NIN.setText(employee.getNIN());
@@ -68,7 +54,7 @@ public class ProfileTab implements Initializable {
         Birthday.setText(employee.getDateNaissance());
         Hiring_date.setText(employee.getHiring_date());
 
-        profileImage.setImage(accountController.getProfilePic(account.getId_Emp()));
+        profileImage.setImage(buildAccountController().getProfilePic(account.getId_Emp()));
 
 
         //popup to change password
@@ -115,7 +101,7 @@ public class ProfileTab implements Initializable {
 
             result.ifPresent(usernamePassword -> {
                 if (usernamePassword.getKey().equals(usernamePassword.getValue())) {
-                    accountController.ChangePassword(account.getId(), usernamePassword.getKey());
+                    buildAccountController().ChangePassword(account.getId(), usernamePassword.getKey());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
                     alert.setHeaderText(null);
@@ -152,7 +138,7 @@ public class ProfileTab implements Initializable {
 
     }
     private void Changepic(File file) {
-        accountController.ChangeProfilePic(account.getId(),file);
+        buildAccountController().ChangeProfilePic(account.getId(),file);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);

@@ -1,5 +1,11 @@
 package com.hrm;
 
+import com.hrm.Controllers.AccountController;
+import com.hrm.Controllers.EmployeeController;
+import com.hrm.DAO.AccountDAO;
+import com.hrm.DAO.AccountDataAccessService;
+import com.hrm.DAO.EmployeeDAO;
+import com.hrm.DAO.EmployeeDataAccessService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,7 +20,18 @@ public class Main extends Application {
     private void setPrimaryStage(Stage stage) {
         Main.primaryStage = stage;
     }
-
+    private static AccountDAO BuildAccountDAO() {
+        return new AccountDataAccessService();
+    }
+    private static EmployeeDAO BuildEmployeeDAO() {
+        return new EmployeeDataAccessService();
+    }
+    public static AccountController buildAccountController() {
+        return new AccountController(BuildAccountDAO());
+    }
+    public static EmployeeController buildEmployeeController() {
+        return new EmployeeController(BuildEmployeeDAO());
+    }
     static public Stage getPrimaryStage() {
         return Main.primaryStage;
     }

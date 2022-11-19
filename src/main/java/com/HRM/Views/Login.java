@@ -1,9 +1,7 @@
 package com.hrm.Views;
 
 
-import com.hrm.Controllers.AccountController;
 import com.hrm.Controllers.Tools;
-import com.hrm.DAO.AccountDataAccessService;
 import com.hrm.Main;
 import com.hrm.Models.Account;
 import javafx.event.ActionEvent;
@@ -19,12 +17,14 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.hrm.Main.buildAccountController;
+
 public class Login implements Initializable {
 
     public static boolean isLoggedIn = false;
     public static int IDeff = 0;
     public static Account account;
-    private AccountController accountController = new AccountController(new AccountDataAccessService());
+
 
 
     @FXML
@@ -43,8 +43,6 @@ public class Login implements Initializable {
         errorLabel.setText(x);
         errorLabel.setVisible(true);
     }
-
-
     @FXML
     private void Login(ActionEvent event)  {
         if(email.getText().trim().isEmpty()){
@@ -58,7 +56,7 @@ public class Login implements Initializable {
             String parsedpass = pas.getText();
 
 
-            if(accountController.login(parsedusername, parsedpass)){
+            if(buildAccountController().login(parsedusername, parsedpass)){
                 System.out.println("Logged in!");
                 Stage stage = Main.getPrimaryStage();
                 FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/Dashboard.fxml"));
