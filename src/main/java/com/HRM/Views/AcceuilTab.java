@@ -1,6 +1,7 @@
 package com.hrm.Views;
 
 
+import com.hrm.Controllers.EmployeeController;
 import com.hrm.Models.Employee;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +16,8 @@ import java.util.ResourceBundle;
 import static com.hrm.Main.buildEmployeeController;
 
 public class AcceuilTab implements Initializable {
+
+    private EmployeeController employeeController = buildEmployeeController();
     @FXML
     private Label NbStaff,NbPTO,NbEntries;
 
@@ -33,10 +36,10 @@ public class AcceuilTab implements Initializable {
 
     @FXML
     private void Search(ActionEvent actionEvent) {
-        Employee employee = buildEmployeeController().SearchEmployee(SearchField.getText());
+        Employee employee = employeeController.SearchEmployee(SearchField.getText());
         if(employee != null){
             Dashboard.removeTab("Profile", Dashboard.corePane);
-            ProfileTab.account = buildEmployeeController().getAccount(employee.getId());
+            ProfileTab.account = employeeController.getAccount(employee.getId());
             Dashboard.addTab("Profile","Employee.png",Dashboard.corePane);
         }
     }

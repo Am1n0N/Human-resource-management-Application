@@ -1,6 +1,7 @@
 package com.hrm.Views;
 
 
+import com.hrm.Controllers.AccountController;
 import com.hrm.Controllers.Tools;
 import com.hrm.Main;
 import com.hrm.Models.Account;
@@ -24,6 +25,7 @@ public class Login implements Initializable {
     public static boolean isLoggedIn = false;
     public static int IDeff = 0;
     public static Account account;
+    private AccountController accountController = buildAccountController();
 
 
 
@@ -56,7 +58,7 @@ public class Login implements Initializable {
             String parsedpass = pas.getText();
 
 
-            if(buildAccountController().login(parsedusername, parsedpass)){
+            if(accountController.login(parsedusername, parsedpass)){
                 System.out.println("Logged in!");
                 Stage stage = Main.getPrimaryStage();
                 FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/Dashboard.fxml"));

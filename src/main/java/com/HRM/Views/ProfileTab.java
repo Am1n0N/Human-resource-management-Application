@@ -1,6 +1,7 @@
 package com.hrm.Views;
 
 
+import com.hrm.Controllers.AccountController;
 import com.hrm.Main;
 import com.hrm.Models.Account;
 import com.hrm.Models.Employee;
@@ -28,7 +29,7 @@ import java.util.ResourceBundle;
 import static com.hrm.Main.buildAccountController;
 
 public class ProfileTab implements Initializable {
-
+    private AccountController accountController = buildAccountController();
     public static Account account;
     @FXML
     ImageView profileImage;
@@ -44,7 +45,7 @@ public class ProfileTab implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ChangePwdBtn.setVisible(false);
         ChangePicBtn.setVisible(false);
-        Employee employee = buildAccountController().getEmployee(account.getId_Emp());
+        Employee employee = accountController.getEmployee(account.getId_Emp());
         Name.setText(employee.getName());
         Last_name.setText(employee.getLast_name());
         NIN.setText(employee.getNIN());
@@ -54,7 +55,7 @@ public class ProfileTab implements Initializable {
         Birthday.setText(employee.getDateNaissance());
         Hiring_date.setText(employee.getHiring_date());
 
-        profileImage.setImage(buildAccountController().getProfilePic(account.getId_Emp()));
+        profileImage.setImage(accountController.getProfilePic(account.getId_Emp()));
 
 
         //popup to change password
@@ -101,7 +102,7 @@ public class ProfileTab implements Initializable {
 
             result.ifPresent(usernamePassword -> {
                 if (usernamePassword.getKey().equals(usernamePassword.getValue())) {
-                    buildAccountController().ChangePassword(account.getId(), usernamePassword.getKey());
+                    accountController.ChangePassword(account.getId(), usernamePassword.getKey());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
                     alert.setHeaderText(null);
@@ -138,7 +139,7 @@ public class ProfileTab implements Initializable {
 
     }
     private void Changepic(File file) {
-        buildAccountController().ChangeProfilePic(account.getId(),file);
+        accountController.ChangeProfilePic(account.getId(),file);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
