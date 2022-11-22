@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class AccountDataAccessService implements  AccountDAO{
-    Employee employee;
+    private Employee employee;
     private Account account;
     private String query;
     private Connection connection;

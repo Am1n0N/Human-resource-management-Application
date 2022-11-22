@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Gestion_Ressouce_Humain.iml" filepath="$PROJECT_DIR$/Gestion_Ressouce_Humain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hrm.iml" filepath="$PROJECT_DIR$/hrm.iml" />
     </modules>
   </component>
 </project>
