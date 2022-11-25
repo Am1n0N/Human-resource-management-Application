@@ -5,38 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21765063-bdf1-4b67-932c-72e3e0e7b311" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/ContractController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/PTOSController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/ContractDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/PTOSDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/PTOSDataAccessService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Contract.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Entry.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/PTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/PTOS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Request.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/Controllers/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/Controllers/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/Controllers/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/Tools.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/DAO/AccountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/AccountDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/DAO/AccountDataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/AccountDataAccessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/DAO/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/DAO/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/DAO/EmployeeDataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EmployeeDataAccessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/Models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/Models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/Views/AcceuilTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/AcceuilTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/Views/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/Views/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/HRM/Views/ProfileTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/ProfileTab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/EntryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/RequestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/ContractDataAccessService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EntryDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EntryDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/RequestDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/RequestDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/AddEmployeeTab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/AddEntryTab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/EmployeesTab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/EntriesTab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/EntryTab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AddEmployeeTab.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AddEntryTab.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/EmployeesTab.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/EntriesTab.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/EntryTab.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/ContractController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/AccountDataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/AccountDataAccessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EmployeeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EmployeeDataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EmployeeDataAccessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Views/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/Dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Views/ProfileTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/ProfileTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/ProfileTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ProfileTab.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +47,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -66,39 +66,29 @@
     </option>
   </component>
   <component name="ProjectId" id="2HrxKsJ95IwWY6ZunYi1RNq2Btj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Pc/Documents/javafx-sdk-19&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/moham/Documents/Workplace/fontawesomefx-8.2.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.hrm.Main" />
       <module name="hrm" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\Pc\Documents\javafx-sdk-19\lib&quot; --add-modules javafx.controls,javafx.fxml" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Gestion_Ressouce_Humain" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Gestion_Ressouce_Humain" />
-      <option name="filePath" />
+      <option name="VM_PARAMETERS" value="--module-path C:\Users\moham\Documents\javafx-sdk-19/lib --add-modules=javafx.controls,javafx.fxml " />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -114,6 +104,17 @@
       <updated>1669056944142</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

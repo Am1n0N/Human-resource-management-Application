@@ -2,6 +2,8 @@ package com.hrm.Views;
 
 
 import com.hrm.Controllers.AccountController;
+import com.hrm.Controllers.EmployeeController;
+import com.hrm.DAO.EmployeeDataAccessService;
 import com.hrm.Main;
 import com.hrm.Models.Account;
 import com.hrm.Models.Employee;
@@ -30,6 +32,7 @@ import static com.hrm.Main.buildAccountController;
 
 public class ProfileTab implements Initializable {
     private AccountController accountController = buildAccountController();
+    EmployeeController employeeController = Main.buildEmployeeController();
     public static Account account;
     @FXML
     ImageView profileImage;
@@ -56,7 +59,7 @@ public class ProfileTab implements Initializable {
         Hiring_date.setText(employee.getHiring_date());
 
         profileImage.setImage(accountController.getProfilePic(account.getId_Emp()));
-
+        profileImage.autosize();
 
         //popup to change password
         ChangePwdBtn.setOnAction(event -> {

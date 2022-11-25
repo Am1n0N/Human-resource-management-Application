@@ -101,7 +101,6 @@ try {
                         rs.getString("Address"),
                         rs.getString("Telephone"),
                         rs.getString("DateNaissance"),
-                        rs.getDouble("Salary"),
                         rs.getString("Hiring_date"));
             }
             return employee;
@@ -159,7 +158,7 @@ try {
     @Override
     public int signup(Account account, Employee employee) {
         try {
-            query = "INSERT INTO employee (Name, Last_Name, Title, Address, Telephone, DateNaissance, Salary, Hiring_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            query = "INSERT INTO employee (Name, Last_Name, Title, Address, Telephone, DateNaissance, Salary, Hiring_date) VALUES (?, ?, ?, ?, ?, ?,?)";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, employee.getName());
             statement.setString(2, employee.getLast_name());
@@ -167,8 +166,7 @@ try {
             statement.setString(4, employee.getAddress());
             statement.setString(5, employee.getTelephone());
             statement.setString(6, employee.getDateNaissance());
-            statement.setDouble(7, employee.getSalary());
-            statement.setString(8, employee.getHiring_date());
+            statement.setString(7, employee.getHiring_date());
             statement.executeUpdate();
             query = "SELECT * FROM `employee` WHERE `Name` = '"+employee.getName()+"' AND `Last_Name` = '"+employee.getLast_name()+"'";
             PreparedStatement preparedStmt = connection.prepareStatement(query);

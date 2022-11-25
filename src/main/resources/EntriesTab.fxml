@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.hrm.Views.EntriesTab">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="551.0" prefWidth="800.0">
+         <children>
+            <TableView fx:id="EntriesTable" layoutX="27.0" layoutY="25.0" prefHeight="501.0" prefWidth="732.0">
+              <columns>
+                <TableColumn fx:id="Date" prefWidth="172.0" text="Date" />
+                <TableColumn fx:id="Title" prefWidth="201.0" text="Title" />
+                  <TableColumn fx:id="Description" prefWidth="358.0" text="Description" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>

@@ -211,23 +211,23 @@ public class Dashboard implements Initializable {
                     }
                     break;
                 case "Employees":
-                    FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("/com/app/hrm/EmployeesTab.fxml"));
+                    FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("/EmployeesTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader2.load());
                     } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                        System.out.println(e.getLocalizedMessage());
                     }
                     break;
                 case "Add Employee":
-                    FXMLLoader fxmlLoader3 = new FXMLLoader(Main.class.getResource("/com/app/hrm/AddEmployeeTab.fxml"));
+                    FXMLLoader fxmlLoader3 = new FXMLLoader(Main.class.getResource("/AddEmployeeTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader3.load());
                     } catch (Exception e) {
-                        System.out.println(e.getMessage());
+                        System.out.println(e.getStackTrace());
                     }
                     break;
                 case "Contracts":
-                    FXMLLoader fxmlLoader4 = new FXMLLoader(Main.class.getResource("/com/app/hrm/ContractsTab.fxml"));
+                    FXMLLoader fxmlLoader4 = new FXMLLoader(Main.class.getResource("/ContractsTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader4.load());
                     } catch (Exception e) {
@@ -236,7 +236,7 @@ public class Dashboard implements Initializable {
                     break;
                 case "Add Entry":
                 case "Request Entry":
-                    FXMLLoader fxmlLoader5 = new FXMLLoader(Main.class.getResource("/com/app/hrm/AddEntryTab.fxml"));
+                    FXMLLoader fxmlLoader5 = new FXMLLoader(Main.class.getResource("/AddEntryTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader5.load());
                     } catch (Exception e) {
@@ -244,15 +244,22 @@ public class Dashboard implements Initializable {
                     }
                     break;
                 case "Entries":
-                    FXMLLoader fxmlLoader6 = new FXMLLoader(Main.class.getResource("/com/app/hrm/EntriesTab.fxml"));
+                    FXMLLoader fxmlLoader6 = new FXMLLoader(Main.class.getResource("/EntriesTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader6.load());
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                     break;
+                case "Entry":
+                    FXMLLoader fxmlLoader10 = new FXMLLoader(Main.class.getResource("/EntryTab.fxml"));
+                    try {
+                        newTab.setContent(fxmlLoader10.load());
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                 case "Requests":
-                    FXMLLoader fxmlLoader7 = new FXMLLoader(Main.class.getResource("/com/app/hrm/RequestsTab.fxml"));
+                    FXMLLoader fxmlLoader7 = new FXMLLoader(Main.class.getResource("/RequestsTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader7.load());
                     } catch (Exception e) {
@@ -261,7 +268,7 @@ public class Dashboard implements Initializable {
                     break;
                 case "Add PTO":
                 case "Request PTO":
-                    FXMLLoader fxmlLoader8 = new FXMLLoader(Main.class.getResource("/com/app/hrm/AddPTOTab.fxml"));
+                    FXMLLoader fxmlLoader8 = new FXMLLoader(Main.class.getResource("/AddPTOTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader8.load());
                     } catch (Exception e) {
@@ -270,7 +277,7 @@ public class Dashboard implements Initializable {
                     break;
                 case "My PTOs":
                 case "PTOs":
-                    FXMLLoader fxmlLoader9 = new FXMLLoader(Main.class.getResource("/com/app/hrm/PTOsTab.fxml"));
+                    FXMLLoader fxmlLoader9 = new FXMLLoader(Main.class.getResource("/PTOsTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader9.load());
                     } catch (Exception e) {
@@ -278,9 +285,9 @@ public class Dashboard implements Initializable {
                     }
                     break;
                 case "PTO Requests":
-                    FXMLLoader fxmlLoader10 = new FXMLLoader(Main.class.getResource("/com/app/hrm/PTORequestsTab.fxml"));
+                    FXMLLoader fxmlLoader11 = new FXMLLoader(Main.class.getResource("/PTORequestsTab.fxml"));
                     try {
-                        newTab.setContent(fxmlLoader10.load());
+                        newTab.setContent(fxmlLoader11.load());
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }

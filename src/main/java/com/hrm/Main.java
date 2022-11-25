@@ -1,11 +1,9 @@
 package com.hrm;
 
 import com.hrm.Controllers.AccountController;
+import com.hrm.Controllers.ContractController;
 import com.hrm.Controllers.EmployeeController;
-import com.hrm.DAO.AccountDAO;
-import com.hrm.DAO.AccountDataAccessService;
-import com.hrm.DAO.EmployeeDAO;
-import com.hrm.DAO.EmployeeDataAccessService;
+import com.hrm.DAO.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,6 +15,10 @@ import java.io.IOException;
 public class Main extends Application {
 
     private static Stage primaryStage;
+
+    public static ContractController buildContractController() {return new ContractController(BuildContractDAO());}
+
+    private static ContractDAO BuildContractDAO() {return new ContractDataAccessService();}
 
     private void setPrimaryStage(Stage stage) {
         Main.primaryStage = stage;

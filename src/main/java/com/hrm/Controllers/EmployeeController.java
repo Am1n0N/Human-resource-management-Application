@@ -6,6 +6,7 @@ import com.hrm.DAO.EmployeeDAO;
 import com.hrm.Models.Account;
 import com.hrm.Models.Employee;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeController {
@@ -21,12 +22,12 @@ public class EmployeeController {
         }
     }
 
-    public void AddEmployee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  Double salary, String hiring_date) {
-        employeeDAO.AddEmployee(name, last_name, NIN, title, address, telephone, dateNaissance, salary, hiring_date);
+    public int AddEmployee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  String hiring_date) {
+        return employeeDAO.AddEmployee(name, last_name, NIN, title, address, telephone, dateNaissance, hiring_date);
     }
 
-    public void UpdateEmployee(int id, String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  Double salary, String hiring_date) {
-        employeeDAO.UpdateEmployee(id, name, last_name, NIN, title, address, telephone, dateNaissance, salary, hiring_date);
+    public void UpdateEmployee(int id, String name, String last_name, String NIN, String title, String address, String telephone) {
+        employeeDAO.UpdateEmployee(id, name, last_name, NIN, title, address, telephone);
     }
 
     public void DeleteEmployee(int id) {
@@ -37,7 +38,7 @@ public class EmployeeController {
         return employeeDAO.getEmployee(id);
     }
 
-    public List<Employee> getEmployees() {
+    public ArrayList<Employee> getEmployees() {
         return employeeDAO.getEmployees();
     }
 

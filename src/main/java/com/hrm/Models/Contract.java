@@ -56,4 +56,11 @@ public class Contract {
         this.PtoLimit = PtoLimit;
         this.EmployeeId = EmployeeId;
     }
+    public Contract(File pdf, String Signdate, int PtoLimit, int EmployeeId){
+        this.pdf = pdf;
+        this.Signdate = Signdate;
+        this.PtoLimit = PtoLimit;
+        this.EmployeeId = EmployeeId;
+    }
+    public Contract(){}
 }

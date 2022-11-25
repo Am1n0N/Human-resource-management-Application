@@ -5,9 +5,10 @@ import com.hrm.Models.Contract;
 
 public class ContractController {
 
+
     private final ContractDAO contractDAO;
 
-    ContractController(ContractDAO contractDAO) {
+    public ContractController(ContractDAO contractDAO) {
         this.contractDAO = contractDAO;
     }
 

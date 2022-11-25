@@ -77,15 +77,8 @@ public class Employee {
         this.id = id;
     }
 
-    public Double getSalary() {
-        return Salary;
-    }
 
-    public void setSalary(Double salary) {
-        Salary = salary;
-    }
-
-    public Employee(int id, String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  Double salary, String hiring_date) {
+    public Employee(int id, String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  String hiring_date) {
         this.name = name;
         this.Last_name = last_name;
         this.NIN = NIN;
@@ -95,10 +88,9 @@ public class Employee {
         this.DateNaissance = dateNaissance;
         this.Hiring_date = hiring_date;
         this.id = id;
-        this.Salary = salary;
     }
 
-    public Employee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  Double salary, String hiring_date) {
+    public Employee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  String hiring_date) {
         this.name = name;
         this.Last_name = last_name;
         this.NIN = NIN;
@@ -107,6 +99,5 @@ public class Employee {
         this.Telephone = telephone;
         this.DateNaissance = dateNaissance;
         this.Hiring_date = hiring_date;
-        this.Salary = salary;
     }
 }

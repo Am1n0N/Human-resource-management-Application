@@ -7,11 +7,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class EmployeeDataAccessService implements EmployeeDAO {
-    private List<Employee> employees;
+    private ArrayList<Employee> employees = new ArrayList<>();
     private Employee employee;
     private String query;
     private Connection connection;
@@ -28,25 +29,31 @@ public class EmployeeDataAccessService implements EmployeeDAO {
     }
 
     @Override
-    public int AddEmployee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  Double salary, String hiring_date) {
+    public int AddEmployee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  String hiring_date) {
+
         try {
-            query = "INSERT INTO employee (name, last_name, NIN, title, address, telephone, dateNaissance, salary, hiring_date) VALUES (?,?,?,?,?,?,?,?,?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, name);
-            preparedStatement.setString(2, last_name);
-            preparedStatement.setString(3, NIN);
-            preparedStatement.setString(4, title);
-            preparedStatement.setString(5, address);
-            preparedStatement.setString(6, telephone);
-            preparedStatement.setString(7, dateNaissance);
-            preparedStatement.setDouble(8, salary);
-            preparedStatement.setString(9, hiring_date);
-            preparedStatement.executeUpdate();
-            return 1;
+            query = "INSERT INTO employee (name, last_name, NIN, title, address, telephone, dateNaissance, hiring_date) VALUES (?,?,?,?,?,?,?,?)";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, name);
+            statement.setString(2, last_name);
+            statement.setString(3, NIN);
+            statement.setString(4, title);
+            statement.setString(5, address);
+            statement.setString(6, telephone);
+            statement.setString(7, dateNaissance);
+            statement.setString(8, hiring_date);
+            statement.executeUpdate();
+            query = "SELECT id FROM employee WHERE NIN = ?";
+            statement = connection.prepareStatement(query);
+            statement.setString(1, NIN);
+            ResultSet result = statement.executeQuery();
+            result.next();
+            return result.getInt("id");
         } catch (Exception e) {
-            System.out.println(e);
-            return 0;
+            e.printStackTrace();
+            return -1;
         }
+
     }
 
     @Override
@@ -56,7 +63,7 @@ public class EmployeeDataAccessService implements EmployeeDAO {
         try {
             PreparedStatement preparedStmt = connection.prepareStatement(query);
             ResultSet rs= preparedStmt.executeQuery();
-            if(rs.next()){
+            while (rs.next()){
                 employee = new Employee(rs.getInt("id"),
                         rs.getString("Name"),
                         rs.getString("Last_Name"),
@@ -65,7 +72,6 @@ public class EmployeeDataAccessService implements EmployeeDAO {
                         rs.getString("Address"),
                         rs.getString("Telephone"),
                         rs.getString("DateNaissance"),
-                        rs.getDouble("Salary"),
                         rs.getString("Hiring_date"));
             }
             return employee;
@@ -77,12 +83,12 @@ public class EmployeeDataAccessService implements EmployeeDAO {
     }
 
     @Override
-    public List<Employee> getEmployees() {
+    public ArrayList<Employee> getEmployees() {
         String query= "SELECT * FROM `employee`";
         try {
             PreparedStatement preparedStmt = connection.prepareStatement(query);
             ResultSet rs= preparedStmt.executeQuery();
-            if(rs.next()){
+            while (rs.next()){
                 employee = new Employee(rs.getInt("id"),
                         rs.getString("Name"),
                         rs.getString("Last_Name"),
@@ -91,21 +97,20 @@ public class EmployeeDataAccessService implements EmployeeDAO {
                         rs.getString("Address"),
                         rs.getString("Telephone"),
                         rs.getString("DateNaissance"),
-                        rs.getDouble("Salary"),
                         rs.getString("Hiring_date"));
                 employees.add(employee);
             }
             return employees;
         }
         catch(Exception e){
-            System.out.println(e);
+            System.out.println(e.getMessage());
             return null;
         }
     }
 
     @Override
-    public int UpdateEmployee(int id, String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  Double salary, String hiring_date) {
-        query = "UPDATE employee SET name = ?, Last_name = ?, NIN = ? ,Title = ?, Address = ?, Telephone = ?, DateNaissance = ?, Hiring_date = ?, Salary = ? WHERE id = ?";
+    public int UpdateEmployee(int id, String name, String last_name, String NIN, String title, String address, String telephone) {
+        query = "UPDATE employee SET name = ?, Last_name = ?, NIN = ? ,Title = ?, Address = ?, Telephone = ?  WHERE id = ?";
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, name);
@@ -114,10 +119,7 @@ public class EmployeeDataAccessService implements EmployeeDAO {
             statement.setString(4, title);
             statement.setString(5, address);
             statement.setString(6, telephone);
-            statement.setString(7, dateNaissance);
-            statement.setString(8, hiring_date);
-            statement.setDouble(9, salary);
-            statement.setInt(10, id);
+            statement.setInt(7, id);
             statement.executeUpdate();
             return 1;
         } catch (Exception e) {
@@ -171,7 +173,7 @@ public class EmployeeDataAccessService implements EmployeeDAO {
         try {
             PreparedStatement preparedStmt = connection.prepareStatement(query);
             ResultSet rs= preparedStmt.executeQuery();
-            if(rs.next()){
+            while (rs.next()){
                 employee = new Employee(rs.getInt("id"),
                         rs.getString("Name"),
                         rs.getString("Last_Name"),
@@ -180,7 +182,6 @@ public class EmployeeDataAccessService implements EmployeeDAO {
                         rs.getString("Address"),
                         rs.getString("Telephone"),
                         rs.getString("DateNaissance"),
-                        rs.getDouble("Salary"),
                         rs.getString("Hiring_date"));
             }
             return employee;
