@@ -24,7 +24,7 @@ public class EntriesTab implements Initializable {
     @FXML
     TableView<Entry> EntriesTable;
     @FXML
-    TableColumn<Entry, String> Date, Title, Description;
+    TableColumn<Entry, String> Date, Title, Logger;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -32,7 +32,7 @@ public class EntriesTab implements Initializable {
             data2 = FXCollections.observableArrayList();
             Date.setCellValueFactory(new PropertyValueFactory<>("date"));
             Title.setCellValueFactory(new PropertyValueFactory<>("title"));
-            Description.setCellValueFactory(new PropertyValueFactory<>("description"));
+            Logger.setCellValueFactory(new PropertyValueFactory<>("Description"));
             data2.addAll(entries);
             EntriesTable.setItems(data2);
             EntriesTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {

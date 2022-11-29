@@ -8,10 +8,9 @@ public class Request {
     private String Description;
     private Boolean IsClosed;
 
-    public Request(int id, int requesterId, int approverId, String title, String description, Boolean isClosed) {
+    public Request(int id, int requesterId, String title, String description, Boolean isClosed) {
         this.id = id;
         RequesterId = requesterId;
-        ApproverId = approverId;
         Title = title;
         Description = description;
         IsClosed = isClosed;

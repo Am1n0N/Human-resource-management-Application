@@ -4,38 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21765063-bdf1-4b67-932c-72e3e0e7b311" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/EntryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/RequestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/ContractDataAccessService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EntryDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EntryDataAccessObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/RequestDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/RequestDataAccessObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/AddEmployeeTab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/AddEntryTab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/EmployeesTab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/EntriesTab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/EntryTab.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AddEmployeeTab.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/AddEntryTab.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/EmployeesTab.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/EntriesTab.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/EntryTab.fxml" afterDir="false" />
+    <list default="true" id="21765063-bdf1-4b67-932c-72e3e0e7b311" name="Changes" comment="Final">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/AddPTOTab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/RequestsTab.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/AddPTOTab.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RequestsTab.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/ContractController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/AccountDataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/AccountDataAccessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EmployeeDataAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/EmployeeDataAccessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Contract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Entry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/RequestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Controllers/RequestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/RequestDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/RequestDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/RequestDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/DAO/RequestDataAccessObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Models/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Views/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Views/ProfileTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/ProfileTab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ProfileTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/ProfileTab.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Views/EntriesTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/EntriesTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hrm/Views/EntryTab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hrm/Views/EntryTab.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/EntriesTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/EntriesTab.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/EntryTab.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/EntryTab.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +28,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -73,17 +55,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/moham/Documents/Workplace/fontawesomefx-8.2.jar",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/moham/Documents/Workplace/fontawesomefx-8.2.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.hrm.Main" />
@@ -103,6 +85,14 @@
       <option name="presentableId" value="Default" />
       <updated>1669056944142</updated>
     </task>
+    <task id="LOCAL-00001" summary="Final">
+      <created>1669412660649</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669412660649</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -126,5 +116,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Final" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final" />
   </component>
 </project>
