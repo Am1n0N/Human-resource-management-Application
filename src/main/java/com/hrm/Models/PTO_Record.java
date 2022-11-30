@@ -1,16 +1,15 @@
 package com.hrm.Models;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class PTOS {
+public class PTO_Record {
     private int id;
     private int ContractId;
     private int PtoUsed;
     private int PtoAvailable;
     private ArrayList<PTO> PTOs;
 
-    public PTOS(int id, int contractId, int ptoUsed, int ptoAvailable, ArrayList<PTO> PTOs) {
+    public PTO_Record(int id, int contractId, int ptoUsed, int ptoAvailable, ArrayList<PTO> PTOs) {
         this.id = id;
         ContractId = contractId;
         PtoUsed = ptoUsed;

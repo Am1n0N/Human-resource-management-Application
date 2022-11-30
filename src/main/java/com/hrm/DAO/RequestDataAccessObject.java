@@ -22,12 +22,13 @@ public class RequestDataAccessObject implements RequestDAO {
 
     @Override
     public void addRequest(Request request) {
-        query = "INSERT INTO request (RequesterId, Title, Description) VALUES (?, ?, ?)";
+        query = "INSERT INTO request (RequesterId, Title, Description, IsClosed) VALUES (?, ?, ?, ?)";
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, request.getRequesterId());
             statement.setString(2, request.getTitle());
             statement.setString(3, request.getDescription());
+            statement.setBoolean(4, request.getClosed());
             statement.executeUpdate();
         } catch (Exception e) {
             System.out.println(e);
@@ -60,11 +61,12 @@ public class RequestDataAccessObject implements RequestDAO {
     }
 
     @Override
-    public ArrayList<Request> getRequests() {
-        query = "SELECT * FROM request";
+    public ArrayList<Request> getRequests(int id) {
+        query = "SELECT * FROM request WHERE RequesterId = ?";
         ArrayList<Request> requests = new ArrayList<>();
         try {
             PreparedStatement statement = connection.prepareStatement(query);
+            statement.setInt(1, id);
             var result = statement.executeQuery();
             while (result.next()) {
                 requests.add(new Request(result.getInt("id"), result.getInt("RequesterId"),result.getString("Title"), result.getString("Description"), result.getBoolean("IsClosed")));

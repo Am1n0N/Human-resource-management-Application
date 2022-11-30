@@ -33,7 +33,7 @@ public class AddEntryTab implements Initializable {
                 IsPublic.setVisible(false);
                 AllowComment.setVisible(false);
                 AddEntry.setOnAction(actionEvent -> {
-                    Request request = new Request(Login.account.getId(), Title.getText(), Content.getText());
+                    Request request = new Request(Login.account.getId_Emp(), Title.getText(), Content.getText(),false);
                     requestController.addRequest(request);
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");

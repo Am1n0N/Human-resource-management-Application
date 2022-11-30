@@ -29,8 +29,8 @@ public class RequestController {
         requestDAO.deleteRequest(request);
     }
 
-    public ArrayList<Request> getRequests(){
-        return requestDAO.getRequests();
+    public ArrayList<Request> getRequests(int id){
+        return requestDAO.getRequests(id);
     }
 }
 

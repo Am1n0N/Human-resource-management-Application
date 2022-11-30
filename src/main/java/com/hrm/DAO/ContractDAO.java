@@ -4,7 +4,7 @@ import com.hrm.Models.Contract;
 
 import java.util.List;
 
-public interface ContractDAO {
+public interface ContractDAO extends DAO {
     public int addContract(Contract contract);
     public int updateContract(Contract contract);
     public int deleteContract(int id);

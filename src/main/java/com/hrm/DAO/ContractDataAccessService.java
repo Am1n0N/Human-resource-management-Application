@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.nio.channels.FileChannel;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -77,12 +78,13 @@ public class ContractDataAccessService implements ContractDAO {
             if (rs.next()) {
                 contract = new Contract();
                 contract.setId(rs.getInt("id"));
-                File file = new File("C:\\Users\\User\\Documents\\Contract"+id+".pdf");
+                File file = new File("C:\\Users\\moham\\Documents\\Contract"+id+".pdf");
                 FileOutputStream fos = new FileOutputStream(file);
                 fos.write(rs.getBytes("File"));
                 contract.setSigndate(rs.getString("Signdate"));
                 contract.setPtoLimit(rs.getInt("PtoLimit"));
                 contract.setEmployeeId(rs.getInt("EmployeeId"));
+                contract.setPdf(file);
                 return contract;
             }
         } catch (Exception e) {
@@ -102,12 +104,13 @@ public class ContractDataAccessService implements ContractDAO {
             if (rs.next()) {
                 contract = new Contract();
                 contract.setId(rs.getInt("id"));
-                File file = new File("C:\\Users\\User\\Documents\\Contract"+id_Emp+".pdf");
+                File file = new File("C:\\Users\\moham\\Documents\\Contract"+id_Emp+".pdf");
                 FileOutputStream fos = new FileOutputStream(file);
                 fos.write(rs.getBytes("File"));
                 contract.setSigndate(rs.getString("Signdate"));
                 contract.setPtoLimit(rs.getInt("PtoLimit"));
                 contract.setEmployeeId(rs.getInt("EmployeeId"));
+                contract.setPdf(file);
                 return contract;
             }
         } catch (Exception e) {
@@ -115,6 +118,16 @@ public class ContractDataAccessService implements ContractDAO {
         }
         return null;
 
+    }
+
+    @Override
+    public void close() throws Exception {
+        connection.close();
+    }
+
+    @Override
+    public void connect() throws Exception {
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hrm","root","");
     }
 }
 

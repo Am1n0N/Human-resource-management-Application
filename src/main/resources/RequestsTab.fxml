@@ -8,14 +8,14 @@
 
 <AnchorPane prefHeight="551.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hrm.Views.RequestsTab">
    <children>
-      <TableView fx:id="EntriesTable" layoutX="34.0" layoutY="35.0" prefHeight="369.0" prefWidth="732.0">
+      <TableView fx:id="EntriesTable" layoutX="36.0" layoutY="168.0" prefHeight="253.0" prefWidth="732.0">
          <columns>
-            <TableColumn fx:id="Date" prefWidth="172.0" text="RequesterId" />
-            <TableColumn fx:id="Title" prefWidth="201.0" text="Title" />
-            <TableColumn fx:id="Logger" prefWidth="358.0" text="Description" />
+            <TableColumn fx:id="Date" prefWidth="141.0" text="RequesterId" />
+            <TableColumn fx:id="Title" prefWidth="154.0" text="Title" />
+            <TableColumn fx:id="Logger" prefWidth="436.0" text="Description" />
          </columns>
       </TableView>
-      <Button fx:id="Accept" layoutX="34.0" layoutY="429.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="732.0" style="-fx-background-color: #4fab52;" text="Approve" textFill="WHITE">
+      <Button fx:id="Accept" layoutX="34.0" layoutY="436.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="732.0" style="-fx-background-color: #4fab52;" text="Approve" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
@@ -25,5 +25,14 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Button>
+      <TableView fx:id="employeesTable" layoutX="35.0" layoutY="10.0" prefHeight="141.0" prefWidth="732.0">
+         <columns>
+            <TableColumn fx:id="ColName" prefWidth="103.0" text="Name" />
+            <TableColumn fx:id="ColLastName" prefWidth="113.0" text="Last name" />
+            <TableColumn fx:id="ColNIN" prefWidth="131.0" text="NIN" />
+            <TableColumn fx:id="ColPhoneNumber" prefWidth="142.0" text="Phone number" />
+            <TableColumn fx:id="ColTitle" prefWidth="242.0" text="Title" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

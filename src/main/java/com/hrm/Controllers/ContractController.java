@@ -6,11 +6,16 @@ import com.hrm.Models.Contract;
 public class ContractController {
 
 
-    private final ContractDAO contractDAO;
-
     public ContractController(ContractDAO contractDAO) {
         this.contractDAO = contractDAO;
+        try {
+            contractDAO.connect();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+    private final ContractDAO contractDAO;
+
 
     public int AddContract(Contract contract) {
         return contractDAO.addContract(contract);

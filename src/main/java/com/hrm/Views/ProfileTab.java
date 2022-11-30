@@ -19,6 +19,7 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.util.Pair;
 
@@ -36,7 +37,8 @@ public class ProfileTab implements Initializable {
     public static Account account;
     @FXML
     ImageView profileImage;
-
+    @FXML
+    Pane pane;
     @FXML
     Label Name,Last_name,NIN,Address,Telephone,Email,Birthday,Hiring_date;
 
@@ -59,7 +61,9 @@ public class ProfileTab implements Initializable {
         Hiring_date.setText(employee.getHiring_date());
 
         profileImage.setImage(accountController.getProfilePic(account.getId_Emp()));
-        profileImage.autosize();
+        profileImage.setFitHeight(212);
+        profileImage.setFitWidth(185);
+        profileImage.setPreserveRatio(false);
 
         //popup to change password
         ChangePwdBtn.setOnAction(event -> {

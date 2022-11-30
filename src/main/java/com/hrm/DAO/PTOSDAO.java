@@ -1,19 +1,18 @@
 package com.hrm.DAO;
 
 import com.hrm.Models.PTO;
-import com.hrm.Models.PTOS;
+import com.hrm.Models.PTO_Record;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public interface PTOSDAO extends DAO{
-    public int addPTOS(PTOS ptos);
+    public int addPTOS(PTO_Record PTORecord);
     public int getPTOused(int id);
-    public int updatePTOS(PTOS ptos);
+    public int updatePTOS(PTO_Record PTORecord);
     public int deletePTOS(int id);
-    public PTOS getPTOSById(int id);
+    public PTO_Record getPTOSById(int id);
     public ArrayList<PTO> getAllPTOS(int id);
-    public PTOS getPTOSByContractId(int id);
+    public PTO_Record getPTOSByContractId(int id);
     public int addPTO(PTO pto);
     public int updatePTO(PTO pto);
     public int deletePTO(int id);

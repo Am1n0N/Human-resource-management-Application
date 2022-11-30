@@ -3,6 +3,8 @@ package com.hrm.DAO;
 import com.hrm.Models.Account;
 import com.hrm.Models.Employee;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -29,10 +31,10 @@ public class EmployeeDataAccessService implements EmployeeDAO {
     }
 
     @Override
-    public int AddEmployee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  String hiring_date) {
+    public int AddEmployee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance, String hiring_date, File image) {
 
         try {
-            query = "INSERT INTO employee (name, last_name, NIN, title, address, telephone, dateNaissance, hiring_date) VALUES (?,?,?,?,?,?,?,?)";
+            query = "INSERT INTO employee (name, last_name, NIN, title, address, telephone, dateNaissance, hiring_date, ProfilePic) VALUES (?,?,?,?,?,?,?,?,?)";
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, name);
             statement.setString(2, last_name);
@@ -42,6 +44,7 @@ public class EmployeeDataAccessService implements EmployeeDAO {
             statement.setString(6, telephone);
             statement.setString(7, dateNaissance);
             statement.setString(8, hiring_date);
+            statement.setBinaryStream(9, new FileInputStream(image), (int) image.length());
             statement.executeUpdate();
             query = "SELECT id FROM employee WHERE NIN = ?";
             statement = connection.prepareStatement(query);

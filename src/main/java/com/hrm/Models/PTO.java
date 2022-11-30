@@ -7,16 +7,16 @@ public class PTO {
     private String StartDate;
     private String EndDate;
     private String Status;
-    private Boolean isApproved;
 
-    public PTO(int id, int ptoId, String description, String startDate, String endDate, String status, Boolean isApproved) {
+
+    public PTO(int id, int ptoId, String description, String startDate, String endDate, String status) {
         this.id = id;
         this.PtoId = ptoId;
         this.Description = description;
         this.StartDate = startDate;
         this.EndDate = endDate;
         this.Status = status;
-        this.isApproved = isApproved;
+
     }
 
     public int getId() {
@@ -67,11 +67,5 @@ public class PTO {
         Status = status;
     }
 
-    public Boolean getApproved() {
-        return isApproved;
-    }
 
-    public void setApproved(Boolean approved) {
-        isApproved = approved;
-    }
 }

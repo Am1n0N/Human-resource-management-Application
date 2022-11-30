@@ -258,6 +258,7 @@ public class Dashboard implements Initializable {
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
+                    break;
                 case "Requests":
                     FXMLLoader fxmlLoader7 = new FXMLLoader(Main.class.getResource("/RequestsTab.fxml"));
                     try {
@@ -284,7 +285,7 @@ public class Dashboard implements Initializable {
                         System.out.println(e.getMessage());
                     }
                     break;
-                case "PTO Requests":
+                case "PTO Request":
                     FXMLLoader fxmlLoader11 = new FXMLLoader(Main.class.getResource("/PTORequestsTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader11.load());

@@ -12,9 +12,9 @@
 
 <AnchorPane prefHeight="551.0" prefWidth="800.0" style="-fx-background-color: #f0f0f0;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hrm.Views.ProfileTab">
    <children>
-      <Pane layoutX="31.0" layoutY="51.0" prefHeight="242.0" prefWidth="216.0" style="-fx-background-color: WHITE; -fx-background-radius: 5; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0);">
+      <Pane fx:id="pane" layoutX="31.0" layoutY="51.0" prefHeight="239.0" prefWidth="211.0" style="-fx-background-color: WHITE; -fx-background-radius: 5; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 5, 0, 0, 0);">
          <children>
-            <ImageView fx:id="profileImage" fitHeight="250.0" fitWidth="186.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-radius: 30;">
+            <ImageView fx:id="profileImage" fitHeight="212.0" fitWidth="197.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@profile_pic.png" />
                </image>

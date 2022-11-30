@@ -6,6 +6,7 @@ import com.hrm.DAO.EmployeeDAO;
 import com.hrm.Models.Account;
 import com.hrm.Models.Employee;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +23,8 @@ public class EmployeeController {
         }
     }
 
-    public int AddEmployee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance,  String hiring_date) {
-        return employeeDAO.AddEmployee(name, last_name, NIN, title, address, telephone, dateNaissance, hiring_date);
+    public int AddEmployee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance, String hiring_date, File image) {
+        return employeeDAO.AddEmployee(name, last_name, NIN, title, address, telephone, dateNaissance, hiring_date, image);
     }
 
     public void UpdateEmployee(int id, String name, String last_name, String NIN, String title, String address, String telephone) {

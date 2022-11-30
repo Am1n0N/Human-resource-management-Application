@@ -10,15 +10,16 @@ public class Request {
 
     public Request(int id, int requesterId, String title, String description, Boolean isClosed) {
         this.id = id;
-        RequesterId = requesterId;
-        Title = title;
-        Description = description;
-        IsClosed = isClosed;
+        this.RequesterId = requesterId;
+        this.Title = title;
+        this.Description = description;
+        this.IsClosed = isClosed;
     }
-    public Request(int requesterId, String title, String description) {
-        RequesterId = requesterId;
-        Title = title;
-        Description = description;
+    public Request(int requesterId, String title, String description, Boolean isClosed) {
+        this.RequesterId = requesterId;
+        this.Title = title;
+        this.Description = description;
+        this.IsClosed = isClosed;
     }
     public Request(){}
 
