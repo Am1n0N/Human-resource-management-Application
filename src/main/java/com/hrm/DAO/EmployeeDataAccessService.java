@@ -32,10 +32,17 @@ public class EmployeeDataAccessService implements EmployeeDAO {
 
     @Override
     public int AddEmployee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance, String hiring_date, File image) {
-
         try {
-            query = "INSERT INTO employee (name, last_name, NIN, title, address, telephone, dateNaissance, hiring_date, ProfilePic) VALUES (?,?,?,?,?,?,?,?,?)";
+            //check if employee already exists
+            query = "SELECT * FROM employee WHERE NIN = ?";
             PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, NIN);
+            ResultSet result = statement.executeQuery();
+            if (result.next()) {
+                return -1;
+            }
+            query = "INSERT INTO employee (name, last_name, NIN, title, address, telephone, dateNaissance, hiring_date, ProfilePic) VALUES (?,?,?,?,?,?,?,?,?)";
+            statement = connection.prepareStatement(query);
             statement.setString(1, name);
             statement.setString(2, last_name);
             statement.setString(3, NIN);
@@ -49,7 +56,7 @@ public class EmployeeDataAccessService implements EmployeeDAO {
             query = "SELECT id FROM employee WHERE NIN = ?";
             statement = connection.prepareStatement(query);
             statement.setString(1, NIN);
-            ResultSet result = statement.executeQuery();
+            result = statement.executeQuery();
             result.next();
             return result.getInt("id");
         } catch (Exception e) {

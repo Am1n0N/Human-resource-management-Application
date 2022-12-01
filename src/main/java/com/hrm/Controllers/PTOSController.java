@@ -20,23 +20,23 @@ public class PTOSController {
         }
     }
 
-    public int AddPTOS(PTO_Record PTORecord) {
+    public int AddPTO_Record(PTO_Record PTORecord) {
         return ptosDAO.addPTOS(PTORecord);
     }
 
-    public int UpdatePTOS(PTO_Record PTORecord) {
+    public int UpdatePTO_Record(PTO_Record PTORecord) {
         return ptosDAO.updatePTOS(PTORecord);
     }
 
-    public int DeletePTOS(int id) {
+    public int DeletePTO_Record(int id) {
         return ptosDAO.deletePTOS(id);
     }
 
-    public PTO_Record getPTOSById(int id) {
+    public PTO_Record getPTO_RecordById(int id) {
         return ptosDAO.getPTOSById(id);
     }
 
-    public PTO_Record getPTOSByContractId(int id) {
+    public PTO_Record getPTO_RecordByContractId(int id) {
         return ptosDAO.getPTOSByContractId(id);
     }
 
@@ -64,5 +64,19 @@ public class PTOSController {
         return ptosDAO.getAllPTOS(id);
     }
 
+    public int ApprovePTO(int Recordid,int id) {
+        return ptosDAO.ApprovePTO(Recordid,id);
+    }
 
+    public int RejectPTO(int Recordid,int id) {
+        return ptosDAO.RejectPTO(Recordid,id);
+    }
+
+    public PTO_Record getPTO_RecordByContractId(int id, String status) {
+        return ptosDAO.getPTOSByContractId(id, status);
+    }
+
+    public ArrayList<PTO> getAllPTOSByStatus(String status) {
+        return ptosDAO.getAllPTOSByStatus(status);
+    }
 }

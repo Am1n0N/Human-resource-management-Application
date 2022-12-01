@@ -16,6 +16,13 @@ public class PTO_Record {
         PtoAvailable = ptoAvailable;
         this.PTOs = PTOs;
     }
+    public PTO_Record(int id, int contractId, int ptoUsed, int ptoAvailable) {
+        this.id = id;
+        ContractId = contractId;
+        PtoUsed = ptoUsed;
+        this.PTOs = PTOs;
+    }
+    public PTO_Record() {}
 
     public int getId() {
         return id;

@@ -18,7 +18,7 @@ public class PTO {
         this.Status = status;
 
     }
-
+    public PTO(){}
     public int getId() {
         return id;
     }

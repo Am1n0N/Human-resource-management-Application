@@ -69,7 +69,7 @@ public class Dashboard implements Initializable {
             leafs.add(new TreeItem<>("Entries", buildIcon("/BO.png")));
 
             leafs.add(new TreeItem<>("Request PTO", buildIcon("/Hospitalisation.png")));
-            leafs.add(new TreeItem<>(" My PTOs", buildIcon("/SP.png")));
+            leafs.add(new TreeItem<>("My PTOs", buildIcon("/SP.png")));
 
             navList.getRoot().getChildren().addAll(leafs);
         }
@@ -121,8 +121,8 @@ public class Dashboard implements Initializable {
                     case "Request PTO":
                         addTab("Request PTO", "Hospitalisation.png", mainPane);
                         break;
-                    case " My PTOs":
-                        addTab(" My PTOs", "SP.png", mainPane);
+                    case "My PTOs":
+                        addTab("My PTOs", "SP.png", mainPane);
                         break;
 
                 }
@@ -268,10 +268,17 @@ public class Dashboard implements Initializable {
                     }
                     break;
                 case "Add PTO":
-                case "Request PTO":
                     FXMLLoader fxmlLoader8 = new FXMLLoader(Main.class.getResource("/AddPTOTab.fxml"));
                     try {
                         newTab.setContent(fxmlLoader8.load());
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case "Request PTO":
+                    FXMLLoader fxmlLoader20 = new FXMLLoader(Main.class.getResource("/RequestPTOTab.fxml"));
+                    try {
+                        newTab.setContent(fxmlLoader20.load());
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -293,7 +300,6 @@ public class Dashboard implements Initializable {
                         System.out.println(e.getMessage());
                     }
                     break;
-
             }
             pane.getTabs().add(newTab);
             pane.getSelectionModel().select(newTab);

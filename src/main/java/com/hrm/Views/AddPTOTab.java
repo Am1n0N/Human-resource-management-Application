@@ -1,8 +1,14 @@
 package com.hrm.Views;
 
+import com.hrm.Controllers.ContractController;
 import com.hrm.Controllers.EmployeeController;
+import com.hrm.Controllers.PTOSController;
+import com.hrm.DAO.ContractDataAccessService;
 import com.hrm.DAO.EmployeeDataAccessService;
+import com.hrm.DAO.PTOSDataAccessService;
 import com.hrm.Models.Employee;
+import com.hrm.Models.PTO;
+import com.hrm.Models.PTO_Record;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,19 +17,23 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AddPTOTab implements Initializable {
     private ObservableList<Employee> data;
     EmployeeController employeeController = new EmployeeController(new EmployeeDataAccessService());
+    PTOSController ptoSController = new PTOSController(new PTOSDataAccessService());
+
+    ContractController contractController = new ContractController(new ContractDataAccessService());
     ArrayList<Employee> employees;
     @FXML
     TableView<Employee> employeesTable;
     @FXML
     TableColumn<Employee, String> ColName, ColLastName, ColNIN, ColTitle, ColPhoneNumber;
     @FXML
-    TextField startDate, endDate;
+    DatePicker startDate, endDate;
     @FXML
     TextArea Content;
     @FXML
@@ -43,14 +53,38 @@ public class AddPTOTab implements Initializable {
         ColPhoneNumber.setCellValueFactory(new PropertyValueFactory<>("telephone"));
         employees.forEach(employee -> data.add(employee));
         employeesTable.setItems(data);
+
         employeesTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
+
+                PTO_Record PTORecord = ptoSController.getPTO_RecordByContractId(contractController.GetContractByEmpId(newSelection.getId()).getId());
                 startDate.setDisable(false);
                 endDate.setDisable(false);
                 Content.setDisable(false);
-                submit.setDisable(false);
+
+                if (PTORecord.getPtoAvailable()!= 0) {
+                    submit.setDisable(false);
+                }
                 submit.setOnAction(e -> {
-                    //employeeController.addPTO(newSelection.getId(), startDate.getText(), endDate.getText(), Content.getText());
+                    System.out.println(startDate.getValue().toString());
+                    PTO SPTO = new PTO();
+                    SPTO.setStartDate(Date.valueOf(startDate.getValue().toString()).toString());
+                    SPTO.setEndDate(Date.valueOf(endDate.getValue()).toString());
+                    SPTO.setDescription(Content.getText());
+                    SPTO.setPtoId(PTORecord.getId());
+                    SPTO.setStatus("Approved");
+                    int msg = ptoSController.AddPTO(SPTO);
+                    if (msg == 1) {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Success");
+                        alert.setHeaderText("PTO Added Successfully");
+                        alert.showAndWait();
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("PTO Not Added");
+                        alert.showAndWait();
+                    }
                 });
             }
         });

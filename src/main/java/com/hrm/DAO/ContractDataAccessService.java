@@ -28,7 +28,13 @@ public class ContractDataAccessService implements ContractDAO {
             statement.setInt(3, contract.getPtoLimit());
             statement.setInt(4, contract.getEmployeeId());
             statement.executeUpdate();
-            return 1;
+            //return the id of the contract
+            query = "SELECT id FROM contract WHERE EmployeeId = ?";
+            statement = connection.prepareStatement(query);
+            statement.setInt(1, contract.getEmployeeId());
+            ResultSet result = statement.executeQuery();
+            result.next();
+            return result.getInt("id");
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -117,7 +123,6 @@ public class ContractDataAccessService implements ContractDAO {
             System.out.println(e);
         }
         return null;
-
     }
 
     @Override

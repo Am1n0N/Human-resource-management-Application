@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="551.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hrm.Views.PTOsTab">
+   <children>
+      <TableView fx:id="PTOTable" prefHeight="556.0" prefWidth="804.0">
+         <columns>
+            <TableColumn fx:id="start" prefWidth="141.0" text="Start-Date" />
+            <TableColumn fx:id="end" prefWidth="154.0" text="End-Date" />
+            <TableColumn fx:id="Description" prefWidth="508.0" text="Description" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

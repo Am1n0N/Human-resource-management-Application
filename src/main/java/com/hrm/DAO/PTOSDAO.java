@@ -12,9 +12,17 @@ public interface PTOSDAO extends DAO{
     public int deletePTOS(int id);
     public PTO_Record getPTOSById(int id);
     public ArrayList<PTO> getAllPTOS(int id);
+    public ArrayList<PTO> getAllPTOSByStatus(String status);
     public PTO_Record getPTOSByContractId(int id);
+    public PTO_Record getPTOSByContractId(int id, String status);
+
+
     public int addPTO(PTO pto);
     public int updatePTO(PTO pto);
     public int deletePTO(int id);
     public PTO getPTOById(int id);
+    public int ApprovePTO(int Recordid, int id);
+    public int RejectPTO(int Recordid, int id);
+
+
 }
