@@ -14,6 +14,13 @@ public class ContractController {
             e.printStackTrace();
         }
     }
+    protected void finalize() throws Throwable {
+        try {
+            contractDAO.close();
+        } finally {
+            super.finalize();
+        }
+    }
     private final ContractDAO contractDAO;
 
 

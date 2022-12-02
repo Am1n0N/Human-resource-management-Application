@@ -4,14 +4,22 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="551.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hrm.Views.PTOsTab">
    <children>
-      <TableView fx:id="PTOTable" prefHeight="556.0" prefWidth="804.0">
+      <TableView fx:id="PTOTable" layoutX="21.0" layoutY="191.0" prefHeight="330.0" prefWidth="761.0">
          <columns>
             <TableColumn fx:id="start" prefWidth="141.0" text="Start-Date" />
             <TableColumn fx:id="end" prefWidth="154.0" text="End-Date" />
             <TableColumn fx:id="Description" prefWidth="508.0" text="Description" />
+         </columns>
+      </TableView>
+      <TableView fx:id="employeesTable" layoutX="21.0" layoutY="26.0" prefHeight="160.0" prefWidth="761.0">
+         <columns>
+            <TableColumn fx:id="ColName" prefWidth="103.0" text="Name" />
+            <TableColumn fx:id="ColLastName" prefWidth="113.0" text="Last name" />
+            <TableColumn fx:id="ColNIN" prefWidth="131.0" text="NIN" />
+            <TableColumn fx:id="ColPhoneNumber" prefWidth="142.0" text="Phone number" />
+            <TableColumn fx:id="ColTitle" prefWidth="242.0" text="Title" />
          </columns>
       </TableView>
    </children>

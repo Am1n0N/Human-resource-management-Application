@@ -1,15 +1,19 @@
 package com.hrm.Models;
 
+import java.time.LocalDate;
+
+import static java.time.temporal.ChronoUnit.DAYS;
+
 public class PTO {
     private int id;
     private int PtoId;
     private String Description;
-    private String StartDate;
-    private String EndDate;
+    private LocalDate StartDate;
+    private LocalDate EndDate;
     private String Status;
 
 
-    public PTO(int id, int ptoId, String description, String startDate, String endDate, String status) {
+    public PTO(int id, int ptoId, String description, LocalDate startDate, LocalDate endDate, String status) {
         this.id = id;
         this.PtoId = ptoId;
         this.Description = description;
@@ -43,19 +47,19 @@ public class PTO {
         Description = description;
     }
 
-    public String getStartDate() {
+    public LocalDate getStartDate() {
         return StartDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(LocalDate startDate) {
         StartDate = startDate;
     }
 
-    public String getEndDate() {
+    public LocalDate getEndDate() {
         return EndDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(LocalDate endDate) {
         EndDate = endDate;
     }
 
@@ -67,5 +71,8 @@ public class PTO {
         Status = status;
     }
 
+    public int getDays(){
+        return (int) DAYS.between(getStartDate(),getEndDate());
+    }
 
 }

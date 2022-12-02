@@ -202,4 +202,20 @@ public class EmployeeDataAccessService implements EmployeeDAO {
         }
     }
 
+    @Override
+    public int getEmployeesCount() {
+        String query= "SELECT COUNT(*) FROM `employee`";
+        try {
+            PreparedStatement preparedStmt = connection.prepareStatement(query);
+            ResultSet rs= preparedStmt.executeQuery();
+            if(rs.next()){
+                return rs.getInt(1);
+            }
+            return 0;
+        }
+        catch(Exception e){
+            System.out.println(e);
+            return -1;
+        }
+    }
 }

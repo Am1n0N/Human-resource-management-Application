@@ -68,12 +68,16 @@ public class AddPTOTab implements Initializable {
                 submit.setOnAction(e -> {
                     System.out.println(startDate.getValue().toString());
                     PTO SPTO = new PTO();
-                    SPTO.setStartDate(Date.valueOf(startDate.getValue().toString()).toString());
-                    SPTO.setEndDate(Date.valueOf(endDate.getValue()).toString());
+                    SPTO.setStartDate(startDate.getValue());
+                    SPTO.setEndDate(endDate.getValue());
                     SPTO.setDescription(Content.getText());
                     SPTO.setPtoId(PTORecord.getId());
                     SPTO.setStatus("Approved");
-                    int msg = ptoSController.AddPTO(SPTO);
+                    int msg=0;
+                    if(SPTO.getStartDate().isBefore(SPTO.getEndDate()) || SPTO.getDays() < PTORecord.getPtoAvailable()){
+                         msg = ptoSController.AddPTO(PTORecord,SPTO);
+                    }
+
                     if (msg == 1) {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Success");

@@ -3,10 +3,8 @@ package com.hrm.DAO;
 import com.hrm.Models.PTO;
 import com.hrm.Models.PTO_Record;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class PTOSDataAccessService implements PTOSDAO {
@@ -101,7 +99,7 @@ public class PTOSDataAccessService implements PTOSDAO {
                 if (resultSet1.next()) {
                     ArrayList<PTO> ptoList = new ArrayList<>();
                     do {
-                        ptoList.add(new PTO(resultSet1.getInt("id"), resultSet1.getInt("id_PTORecord"), resultSet1.getString("description"), resultSet1.getString("startDate"), resultSet1.getString("endDate"), resultSet1.getString("status")));
+                        ptoList.add(new PTO(resultSet1.getInt("id"), resultSet1.getInt("id_PTORecord"), resultSet1.getString("description"), LocalDate.parse(resultSet1.getString("startDate").toString()), LocalDate.parse(resultSet1.getString("endDate").toString()), resultSet1.getString("status")));
                     } while (resultSet1.next());
                     return new PTO_Record(resultSet.getInt("id"), resultSet.getInt("ContractId"), resultSet.getInt("PtoUsed"), resultSet.getInt("PtoAvailable"), ptoList);
                 }}
@@ -121,7 +119,7 @@ public class PTOSDataAccessService implements PTOSDAO {
             if (resultSet.next()) {
                 ArrayList<PTO> ptoList = new ArrayList<>();
                 do {
-                    ptoList.add(new PTO(resultSet.getInt("id"), resultSet.getInt("id_PTORecord"), resultSet.getString("description"), resultSet.getString("startDate"), resultSet.getString("endDate"), resultSet.getString("status")));
+                    ptoList.add(new PTO(resultSet.getInt("id"), resultSet.getInt("id_PTORecord"), resultSet.getString("description"), LocalDate.parse(resultSet.getDate("startDate").toString()), LocalDate.parse(resultSet.getString("endDate").toString()), resultSet.getString("status")));
                 } while (resultSet.next());
                 return ptoList;
             }
@@ -141,7 +139,7 @@ public class PTOSDataAccessService implements PTOSDAO {
             if (resultSet.next()) {
                 ArrayList<PTO> ptoList = new ArrayList<>();
                 do {
-                    ptoList.add(new PTO(resultSet.getInt("id"), resultSet.getInt("id_PTORecord"), resultSet.getString("description"), resultSet.getString("startDate"), resultSet.getString("endDate"), resultSet.getString("status")));
+                    ptoList.add(new PTO(resultSet.getInt("id"), resultSet.getInt("id_PTORecord"), resultSet.getString("description"), LocalDate.parse(resultSet.getString("startDate").toString()), LocalDate.parse(resultSet.getString("endDate").toString()), resultSet.getString("status")));
                 } while (resultSet.next());
                 return ptoList;
             }
@@ -166,7 +164,7 @@ public class PTOSDataAccessService implements PTOSDAO {
                 ResultSet resultSet1 = statement.executeQuery();
                 if (resultSet1.next()) {
                     do {
-                        ptoList.add(new PTO(resultSet1.getInt("id"), resultSet1.getInt("id_PTORecord"), resultSet1.getString("description"), resultSet1.getString("startDate"), resultSet1.getString("endDate"), resultSet1.getString("status")));
+                        ptoList.add(new PTO(resultSet1.getInt("id"), resultSet1.getInt("id_PTORecord"), resultSet1.getString("description"), LocalDate.parse(resultSet1.getDate("startDate").toString()), LocalDate.parse(resultSet1.getString("endDate").toString()), resultSet1.getString("status")));
                     } while (resultSet1.next());
                     System.out.println("here"+ptoList);
                 }
@@ -194,7 +192,7 @@ public class PTOSDataAccessService implements PTOSDAO {
                 ResultSet resultSet1 = statement.executeQuery();
                 if (resultSet1.next()) {
                     do {
-                        ptoList.add(new PTO(resultSet1.getInt("id"), resultSet1.getInt("id_PTORecord"), resultSet1.getString("description"), resultSet1.getString("startDate"), resultSet1.getString("endDate"), resultSet1.getString("status")));
+                        ptoList.add(new PTO(resultSet1.getInt("id"), resultSet1.getInt("id_PTORecord"), resultSet1.getString("description"), LocalDate.parse(resultSet1.getDate("startDate").toString()),LocalDate.parse(resultSet1.getString("endDate").toString()), resultSet1.getString("status")));
                     } while (resultSet1.next());
                 }
                     return new PTO_Record(resultSet.getInt("id"), resultSet.getInt("ContractId"), resultSet.getInt("PtoUsed"), resultSet.getInt("PtoAvailable"), ptoList);
@@ -206,21 +204,28 @@ public class PTOSDataAccessService implements PTOSDAO {
     }
 
     @Override
-    public int addPTO(PTO pto) {
+    public int addPTO(PTO_Record Recordid,PTO pto) {
+        //update PTO_Record and add PTO
         try {
-            query = "INSERT INTO pto (id_PTORecord ,description, startDate, endDate, status) VALUES (?, ?, ? , ?, ?)";
+            query = "INSERT INTO pto (id_PTORecord,description,startDate,endDate,status) VALUES (?,?,?,?,?)";
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, pto.getPtoId());
+            statement.setInt(1, Recordid.getId());
             statement.setString(2, pto.getDescription());
-            statement.setString(3, pto.getStartDate());
-            statement.setString(4, pto.getEndDate());
+            statement.setString(3, pto.getStartDate().toString());
+            statement.setString(4, pto.getEndDate().toString());
             statement.setString(5, pto.getStatus());
             statement.executeUpdate();
+            query = "UPDATE pto_record SET PtoUsed = ?, PtoAvailable=? WHERE id = ?";
+            statement = connection.prepareStatement(query);
+            statement.setInt(1, Recordid.getPtoUsed() + pto.getDays());
+            statement.setInt(2, Recordid.getPtoAvailable() - pto.getDays());
+            statement.setInt(3, Recordid.getId());
+            statement.executeUpdate();
             return 1;
-        } catch (Exception e) {
+            } catch (Exception e) {
             System.out.println(e);
         }
-        return -1;
+        return 0;
     }
 
     @Override
@@ -230,8 +235,8 @@ public class PTOSDataAccessService implements PTOSDAO {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setInt(1, pto.getPtoId());
             statement.setString(2, pto.getDescription());
-            statement.setString(3, pto.getStartDate());
-            statement.setString(4, pto.getEndDate());
+            statement.setDate(3, Date.valueOf(pto.getStartDate()));
+            statement.setDate(4, Date.valueOf(pto.getEndDate()));
             statement.setString(5, pto.getStatus());
             statement.setInt(7, pto.getId());
             statement.executeUpdate();
@@ -265,7 +270,7 @@ public class PTOSDataAccessService implements PTOSDAO {
             statement.setInt(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                return new PTO(resultSet.getInt("id"), resultSet.getInt("id_PTORecord"), resultSet.getString("description"), resultSet.getString("startDate"), resultSet.getString("endDate"), resultSet.getString("status"));
+                return new PTO(resultSet.getInt("id"), resultSet.getInt("id_PTORecord"), resultSet.getString("description"), LocalDate.parse(resultSet.getDate("startDate").toString()), LocalDate.parse(resultSet.getString("endDate").toString()), resultSet.getString("status"));
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -274,7 +279,7 @@ public class PTOSDataAccessService implements PTOSDAO {
     }
 
     @Override
-    public int ApprovePTO(int Recordid,int id) {
+    public int ApprovePTO(int Recordid,PTO pto) {
         try {
             //update PTO_Record
             query = "SELECT * FROM pto_record WHERE id = ?";
@@ -286,8 +291,8 @@ public class PTOSDataAccessService implements PTOSDAO {
                 int ptoAvailable = resultSet.getInt("PtoAvailable");
                 query = "UPDATE pto_record SET PtoUsed = ?, PtoAvailable = ? WHERE id = ?";
                 statement = connection.prepareStatement(query);
-                statement.setInt(1, ptoUsed + 1);
-                statement.setInt(2, ptoAvailable - 1);
+                statement.setInt(1, ptoUsed + pto.getDays());
+                statement.setInt(2, ptoAvailable - pto.getDays());
                 statement.setInt(3, Recordid);
                 statement.executeUpdate();
             }
@@ -295,7 +300,7 @@ public class PTOSDataAccessService implements PTOSDAO {
             query = "UPDATE pto SET status = ? WHERE id = ?";
             statement = connection.prepareStatement(query);
             statement.setString(1, "Approved");
-            statement.setInt(2, id);
+            statement.setInt(2, pto.getId());
             statement.executeUpdate();
             return 1;
         } catch (Exception e) {
@@ -305,31 +310,34 @@ public class PTOSDataAccessService implements PTOSDAO {
     }
 
     @Override
-    public int RejectPTO(int Recordid,int id) {
+    public int RejectPTO(int Recordid,PTO pto) {
         try {
-            //update PTO_Record
-            query = "SELECT * FROM pto_record WHERE id = ?";
-            PreparedStatement statement = connection.prepareStatement(query);
-            statement.setInt(1, Recordid);
-            ResultSet resultSet = statement.executeQuery();
-            if (resultSet.next()) {
-                int ptoAvailable = resultSet.getInt("PtoAvailable");
-                query = "UPDATE pto_record SET PtoAvailable = ? WHERE id = ?";
-                statement = connection.prepareStatement(query);
-                statement.setInt(1, ptoAvailable + 1);
-                statement.setInt(2, Recordid);
-                statement.executeUpdate();
-            }
             //update PTO
             query = "UPDATE pto SET status = ? WHERE id = ?";
-            statement = connection.prepareStatement(query);
+            PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, "Rejected");
-            statement.setInt(2, id);
+            statement.setInt(2, pto.getPtoId());
             statement.executeUpdate();
             return 1;
         } catch (Exception e) {
             System.out.println(e);
         }
-        return -1;
+            return -1;
+    }
+
+    @Override
+    public int getPendingPTOsCount() {
+        try {
+            query = "SELECT COUNT(*) FROM pto WHERE status = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, "Pending");
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getInt(1);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return 0;
     }
 }

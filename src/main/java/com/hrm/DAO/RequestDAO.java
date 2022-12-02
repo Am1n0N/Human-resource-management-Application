@@ -11,5 +11,6 @@ public interface RequestDAO extends DAO {
     public void deleteRequest(Request request);
     public void getRequest(Request request);
     public ArrayList<Request> getRequests(int id);
+    public int getRequestsCount();
 }
 

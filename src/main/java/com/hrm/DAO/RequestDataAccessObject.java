@@ -77,4 +77,18 @@ public class RequestDataAccessObject implements RequestDAO {
         }
         return null;
     }
+
+    @Override
+    public int getRequestsCount() {
+        query = "SELECT COUNT(*) FROM request";
+        try {
+            PreparedStatement statement = connection.prepareStatement(query);
+            var result = statement.executeQuery();
+            result.next();
+            return result.getInt(1);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return -1;
+    }
 }

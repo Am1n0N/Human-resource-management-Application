@@ -19,6 +19,13 @@ public class PTOSController {
             e.printStackTrace();
         }
     }
+    protected void finalize() throws Throwable {
+        try {
+            ptosDAO.close();
+        } finally {
+            super.finalize();
+        }
+    }
 
     public int AddPTO_Record(PTO_Record PTORecord) {
         return ptosDAO.addPTOS(PTORecord);
@@ -40,8 +47,8 @@ public class PTOSController {
         return ptosDAO.getPTOSByContractId(id);
     }
 
-    public int AddPTO(PTO pto) {
-        return ptosDAO.addPTO(pto);
+    public int AddPTO(PTO_Record Recordid,PTO pto) {
+        return ptosDAO.addPTO(Recordid,pto);
     }
 
     public int UpdatePTO(PTO pto) {
@@ -64,19 +71,22 @@ public class PTOSController {
         return ptosDAO.getAllPTOS(id);
     }
 
-    public int ApprovePTO(int Recordid,int id) {
-        return ptosDAO.ApprovePTO(Recordid,id);
+    public int ApprovePTO(int Recordid,PTO pto) {
+        return ptosDAO.ApprovePTO(Recordid,pto);
     }
 
-    public int RejectPTO(int Recordid,int id) {
-        return ptosDAO.RejectPTO(Recordid,id);
+    public int RejectPTO(int Recordid,PTO pto) {
+        return ptosDAO.RejectPTO(Recordid,pto);
     }
 
     public PTO_Record getPTO_RecordByContractId(int id, String status) {
         return ptosDAO.getPTOSByContractId(id, status);
     }
-
     public ArrayList<PTO> getAllPTOSByStatus(String status) {
         return ptosDAO.getAllPTOSByStatus(status);
+    }
+
+    public int getPendingPTOsCount() {
+        return ptosDAO.getPendingPTOsCount();
     }
 }

@@ -284,6 +284,13 @@ public class Dashboard implements Initializable {
                     }
                     break;
                 case "My PTOs":
+                    FXMLLoader fxmlLoader22 = new FXMLLoader(Main.class.getResource("/MyPTOsTab.fxml"));
+                    try {
+                        newTab.setContent(fxmlLoader22.load());
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
                 case "PTOs":
                     FXMLLoader fxmlLoader9 = new FXMLLoader(Main.class.getResource("/PTOsTab.fxml"));
                     try {

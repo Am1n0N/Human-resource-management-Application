@@ -22,6 +22,13 @@ public class EmployeeController {
             e.printStackTrace();
         }
     }
+    protected void finalize() throws Throwable {
+        try {
+            employeeDAO.close();
+        } finally {
+            super.finalize();
+        }
+    }
 
     public int AddEmployee(String name, String last_name, String NIN, String title, String address, String telephone, String dateNaissance, String hiring_date, File image) {
         return employeeDAO.AddEmployee(name, last_name, NIN, title, address, telephone, dateNaissance, hiring_date, image);
@@ -53,6 +60,9 @@ public class EmployeeController {
 
     public void close() throws Exception {
         employeeDAO.close();
+    }
+    public int getEmployeesCount() {
+        return employeeDAO.getEmployeesCount();
     }
 
 }

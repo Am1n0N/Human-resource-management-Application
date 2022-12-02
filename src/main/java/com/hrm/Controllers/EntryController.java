@@ -15,6 +15,13 @@ public class EntryController {
             e.printStackTrace();
         }
     }
+    protected void finalize() throws Throwable {
+        try {
+            entryDAO.close();
+        } finally {
+            super.finalize();
+        }
+    }
     public void addEntry(Entry entry){
         entryDAO.addEntry(entry);
     }

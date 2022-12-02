@@ -79,6 +79,7 @@ public class AddEmployeeTab implements Initializable {
             accountController.AddAccount(TFEmail.getText(),TFPassword.getText(),admin,id);
             //Create Contract:
             if (file != null) {
+
                 Contract contract = new Contract(file, Date.valueOf(TFSigningDate.getValue()).toString(), Integer.parseInt(TFPtoNumber.getText()), id);
                 int Cid = contractController.AddContract(contract);
                 PTO_Record pto_record = new PTO_Record();

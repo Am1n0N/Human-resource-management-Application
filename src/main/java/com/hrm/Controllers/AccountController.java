@@ -21,6 +21,13 @@ public class AccountController {
             e.printStackTrace();
         }
     }
+    protected void finalize() throws Throwable {
+        try {
+            this.accountDAO.close();
+        } finally {
+            super.finalize();
+        }
+    }
 
     public boolean login(String Email, String password) {
 

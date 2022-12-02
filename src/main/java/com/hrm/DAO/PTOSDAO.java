@@ -17,12 +17,12 @@ public interface PTOSDAO extends DAO{
     public PTO_Record getPTOSByContractId(int id, String status);
 
 
-    public int addPTO(PTO pto);
+    public int addPTO(PTO_Record Recordid,PTO pto);
     public int updatePTO(PTO pto);
     public int deletePTO(int id);
     public PTO getPTOById(int id);
-    public int ApprovePTO(int Recordid, int id);
-    public int RejectPTO(int Recordid, int id);
-
+    public int ApprovePTO(int Recordid, PTO pto);
+    public int RejectPTO(int Recordid, PTO pto);
+    public int getPendingPTOsCount();
 
 }

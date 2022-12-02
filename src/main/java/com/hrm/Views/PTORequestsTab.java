@@ -60,7 +60,6 @@ public class PTORequestsTab implements Initializable {
                     maxPTO.setText(contractController.GetContractByEmpId(newSelection.getId()).getPtoLimit() + "");
                     PTORecord.getPTOs().forEach(pto -> {
                         if (pto.getStatus().equals("Pending")) {
-                            System.out.println(pto.getStatus());
                             PtoReq.add(pto);
                         }
                     });
@@ -79,7 +78,7 @@ public class PTORequestsTab implements Initializable {
                         }
                         Reject.setDisable(false);
                         Accept.setOnAction(actionEvent -> {
-                            int msg = ptoSController.ApprovePTO(PTORecord.getId(),newSelection2.getId());
+                            int msg = ptoSController.ApprovePTO(PTORecord.getId(),newSelection2);
                             if (msg == 1) {
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setTitle("Success");
@@ -94,7 +93,10 @@ public class PTORequestsTab implements Initializable {
                                 alert.showAndWait();
                             }});
                         Reject.setOnAction(actionEvent1 -> {
-                            int msg = ptoSController.RejectPTO(PTORecord.getId(),newSelection2.getId());
+                            int msg = 0;
+                            if(newSelection2.getStartDate().isBefore(newSelection2.getEndDate()) || newSelection2.getDays() < PTORecord.getPtoAvailable()){
+                                msg = ptoSController.RejectPTO(PTORecord.getId(),newSelection2);
+                            }
                             if (msg == 1) {
                                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                                 alert.setTitle("Success");

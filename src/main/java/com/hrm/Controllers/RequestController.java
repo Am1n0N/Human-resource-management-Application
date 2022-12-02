@@ -17,6 +17,13 @@ public class RequestController {
             e.printStackTrace();
         }
     }
+    protected void finalize() throws Throwable {
+        try {
+            requestDAO.close();
+        } finally {
+            super.finalize();
+        }
+    }
     public void addRequest(Request request){
         requestDAO.addRequest(request);
     }
@@ -31,6 +38,10 @@ public class RequestController {
 
     public ArrayList<Request> getRequests(int id){
         return requestDAO.getRequests(id);
+    }
+
+    public int getRequestsCount(){
+        return requestDAO.getRequestsCount();
     }
 }
 
